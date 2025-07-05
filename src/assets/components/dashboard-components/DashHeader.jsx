@@ -70,7 +70,7 @@ function DashHeader() {
         <img
           src={logotransparent}
           alt="logo image"
-          className='w-[120px] h-[30px] md:w-[200px] md:h-[40px]'
+          className='w-[100px] h-[30px] md:w-[200px] md:h-[40px]'
         />
       </Link>
 
