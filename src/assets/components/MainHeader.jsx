@@ -16,7 +16,7 @@ function MainHeader() {
           <img
             src={logotransparent}
             alt="logo image"
-            className='w-[150px] h-[40px] md:w-[220px] md:h-[40px]'
+            className='w-[100px] h-[30px] md:w-[220px] md:h-[40px]'
           />
         </Link>
 
