@@ -119,7 +119,6 @@ const CheckoutMain = () => {
     if (!shippingAddress.address1.trim()) errors.address1 = 'Address Line 1 is required.';
     if (!shippingAddress.city.trim()) errors.city = 'City is required.';
     if (!shippingAddress.state.trim()) errors.state = 'State/Region is required.';
-    // if (!shippingAddress.zipCode.trim()) errors.zipCode = 'Zip/Postal Code is required.';
     if (!shippingAddress.country.trim()) errors.country = 'Country is required.';
 
     if (showPaymentFields) {
@@ -289,7 +288,7 @@ const CheckoutMain = () => {
   const addressLine = `Shipping Address:\n${shippingAddress.fullName}\n${shippingAddress.address1}${shippingAddress.address2 ? ", " + shippingAddress.address2 : ""}\n${shippingAddress.city}, ${shippingAddress.state}, ${shippingAddress.zipCode}\n${shippingAddress.country}`;
   const contactLine = user && user.email ? `Email: ${user.email}` : '';
   const whatsappOrderMessage =
-    `I'd like to place an order on IT ServicePro:\n\n` +
+    `I'd like to place an order on Adesola Plastics Store:\n\n` +
     orderLines.join("\n") +
     `\n\n${subtotalLine}\n${shippingLine}\n${taxLine}\n${totalLine}\n\n${addressLine}` +
     (contactLine ? `\n${contactLine}` : '');
@@ -348,7 +347,7 @@ const CheckoutMain = () => {
                 />
               </div>
               <div>
-                <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">Zip / Postal Code</label>
+                <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">Zip / Postal Code (Optional)</label>
                 <input
                   type="text" id="zipCode" name="zipCode"
                   value={shippingAddress.zipCode} onChange={handleShippingChange}
@@ -364,12 +363,13 @@ const CheckoutMain = () => {
                   required
                 >
                   <option value="Nigeria">Nigeria</option>
+                  <option value="Ghana">Ghana</option>
                   <option value="USA">United States</option>
                   <option value="Canada">Canada</option>
                   <option value="UK">United Kingdom</option>
+                  <option value="Others">Others</option>
                   {/* Add more countries as needed */}
                 </select>
-                {/* {validationErrors.country && <p className="text-red-500 text-xs mt-1">{validationErrors.country}</p>} */}
               </div>
             </div>
           </div>
@@ -386,7 +386,7 @@ const CheckoutMain = () => {
                     onChange={() => setPaymentMethod('Cash on Delivery')}
                     className="mr-2"
                   />
-                  Payment on Delivery
+                  Payment on Delivery <i className="fa-solid fa-truck-fast ml-1 text-[20px] text-orange-500"></i>
                 </label>
                 <label className="flex items-center">
                   <input
@@ -397,9 +397,9 @@ const CheckoutMain = () => {
                     onChange={() => setPaymentMethod('Bank Transfer')}
                     className="mr-2"
                   />
-                  Bank Transfer
+                  Bank Transfer <i className="fa-solid fa-money-bill-transfer ml-1 text-orange-500 text-[20px]"></i>
                 </label>
-                <label className="flex items-center">
+                {/* <label className="flex items-center">
                   <input
                     type="radio"
                     name="paymentMethod"
@@ -409,7 +409,7 @@ const CheckoutMain = () => {
                     className="mr-2"
                   />
                   Pay with Credit/Debit Card
-                </label>
+                </label> */}
                 <label className="flex items-center">
                   <input
                     type="radio"
@@ -419,7 +419,7 @@ const CheckoutMain = () => {
                     onChange={() => setPaymentMethod('WhatsApp')}
                     className="mr-2"
                   />
-                  Purchase Via WhatsApp
+                  Order Via WhatsApp <i className="fa-brands fa-square-whatsapp ml-1 text-green-700 text-[20px]"></i>
                 </label>
               </div>
 
@@ -430,7 +430,7 @@ const CheckoutMain = () => {
                     Please transfer the total amount to:<br />
                     <b>Bank Name:</b> Example Bank<br />
                     <b>Account Number:</b> 1234567890<br />
-                    <b>Account Name:</b> IT ServicePro Ltd
+                    <b>Account Name:</b> Adesola Plastics Store<br />
                   </p>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Bank Transfer Reference / Proof (optional)
@@ -459,7 +459,6 @@ const CheckoutMain = () => {
                         maxLength="19"
                         required
                       />
-                      {/* {validationErrors.cardNumber && <p className="text-red-500 text-xs mt-1">{validationErrors.cardNumber}</p>} */}
                     </div>
                     <div>
                       <label htmlFor="expiryDate" className="block text-sm font-medium text-gray-700 mb-1">Expiry Date (MM/YY)*</label>
@@ -471,7 +470,6 @@ const CheckoutMain = () => {
                         maxLength="5"
                         required
                       />
-                      {/* {validationErrors.expiryDate && <p className="text-red-500 text-xs mt-1">{validationErrors.expiryDate}</p>} */}
                     </div>
                     <div>
                       <label htmlFor="cvv" className="block text-sm font-medium text-gray-700 mb-1">CVV*</label>
@@ -483,7 +481,6 @@ const CheckoutMain = () => {
                         maxLength="4"
                         required
                       />
-                      {/* {validationErrors.cvv && <p className="text-red-500 text-xs mt-1">{validationErrors.cvv}</p>} */}
                     </div>
                     <div className="md:col-span-2">
                       <label htmlFor="cardName" className="block text-sm font-medium text-gray-700 mb-1">Name on Card*</label>
@@ -493,7 +490,6 @@ const CheckoutMain = () => {
                         className={`w-full border ${validationErrors.cardName ? 'border-red-500' : 'border-gray-300'} rounded-md shadow-sm px-3 py-2 focus:ring-blue-500 focus:border-blue-500`}
                         required
                       />
-                      {/* {validationErrors.cardName && <p className="text-red-500 text-xs mt-1">{validationErrors.cardName}</p>} */}
                     </div>
                   </div>
                 </div>
