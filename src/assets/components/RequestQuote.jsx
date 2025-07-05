@@ -33,15 +33,15 @@ function RequestQuote() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Section */}
           <div className="flex flex-col justify-center text-center lg:text-left">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6">
-              Need Tech Support or IT Services?
-            </h1>
-            <p className='font-semibold text-[18px]'>Get in Touch Today!</p>
+            <h2 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-gray-800 leading-tight mb-6">
+              Need Quality Plastics or Household Items?
+            </h2>
+            <p className='font-semibold text-[18px]'>Get in Touch with Adesola Plastics Store Today!</p>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-8">
-              Whether you need a laptop repair, a website/app built, a complete office IT setup, or any other tech service, our team is here to help. <br /> Have a question, need a quote, or ready to schedule a service? We’re just a call or message away.
+              Looking for durable plastic materials, home equipment, chairs, tables, or other household essentials? We've got you covered with a wide variety of reliable and affordable products for your home and business.
               <br />
-              Reach out using the contact details below or fill out our quick form and we will respond promptly.
-              We look forward to delivering reliable, professional tech solutions that keep you moving forward.
+              Have a question, need a quote, or ready to place an order? We’re just a call or message away.
+              Contact us today using the details below or fill out our quick inquiry form — we’ll get back to you promptly.
             </p>
             <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-8 mt-8">
               <div className="flex items-center space-x-3">
@@ -49,7 +49,7 @@ function RequestQuote() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone text-blue-500">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
-                <span className="text-gray-700">Fast Service: <a href="tel:202-555-0187" className="text-blue-500 hover:underline">(+234) 0811725648</a></span>
+                <span className="text-gray-700">Fast Service: <a href="tel:08029580850" className="text-blue-500 hover:underline">(+234) 08029580850</a></span>
               </div>
               <div className="flex items-center space-x-3">
                 {/* Mail icon */}
@@ -57,7 +57,7 @@ function RequestQuote() {
                   <rect width="20" height="16" x="2" y="4" rx="2"/>
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                 </svg>
-                <span className="text-gray-700"><a href="mailto:infohomepro@email.com" className="text-blue-500 hover:underline">info@itservicepro.com</a></span>
+                <span className="text-gray-700"><a href="mailto:info@adesolaplasticstore.com" className="text-blue-500 hover:underline">info@adesolaplasticstore.com</a></span>
               </div>
             </div>
           </div>
@@ -109,22 +109,15 @@ function RequestQuote() {
                   className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 >
-                  <option value="">Choose Service</option>
-                  <option value="Laptop Repair">Laptop Repair</option>
-                  <option value="Website Development">Website Development</option>
-                  <option value="Mobile App Development">Mobile App Development</option>
-                  <option value="Laptop Purchase">Laptop Purchase</option>
-                  <option value="Office Computer & Server Setup">Office Computer & Server Setup</option>
-                  <option value="IT Solutions">IT Solutions</option>                  
-                  <option value="Networking">Networking</option>
-                  <option value="Data Recovery">Data Recovery</option>
-                  <option value="Software Installation">Software Installation</option>
-                  <option value="Hardware Upgrade">Hardware Upgrade</option>
-                  <option value="Virus Removal">Virus Removal</option>
-                  <option value="Technical Support">Technical Support</option>
-                  <option value="Consultation">Consultation</option>
-                  <option value="Maintenance">Maintenance</option>
-                  <option value="Other">Other Tech Services</option>
+                  <option value="">Select Product Category</option>
+                  <option value="Plastic Chairs">Plastic Chairs</option>
+                  <option value="Plastic Tables">Plastic Tables</option>
+                  <option value="Plastic Storage Containers">Plastic Storage Containers</option>
+                  <option value="Kitchenware & Household Plastics">Kitchenware & Household Plastics</option>
+                  <option value="Home Equipment">Home Equipment</option>
+                  <option value="Wholesale / Bulk Order">Wholesale / Bulk Order</option>                  
+                  <option value="Custom Plastic Items">Custom Plastic Items</option>
+                  <option value="Data Recovery">Others</option>
                 </select>
               </div>
               <div>

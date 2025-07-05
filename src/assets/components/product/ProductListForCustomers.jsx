@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProduct } from '../../context-api/product-context/UseProduct';
 import { ShoppingCart, Eye } from 'lucide-react';
 import { FaSpinner } from 'react-icons/fa';
+import ProductFilter from './ProductFilter';
 
 const ProductListForCustomers = () => {
   const {
@@ -18,19 +19,19 @@ const ProductListForCustomers = () => {
 
   // State to manage current page for fetching
   const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState('recent');
   const navigate = useNavigate();
 
   // Fetch products when the component mounts or the page changes
   useEffect(() => {
-    // Pass the current page to the fetchProducts function
-    fetchProducts({ page: page, limit: 12 }); // Fetch 12 products per page
-  }, [page, fetchProducts]); // Re-run effect when page or fetchProducts (context) changes
+    fetchProducts({ page: page, limit: 12 });
+  }, [page, fetchProducts]);
 
   // Function to handle page change
   const handlePageChange = (newPage) => {
     if (newPage > 0 && newPage <= totalPages) {
       setPage(newPage);
-      window.scrollTo(0, 0); // Scroll to top on page change for better UX
+      window.scrollTo(0, 0);
     }
   };
 
@@ -39,15 +40,42 @@ const ProductListForCustomers = () => {
     navigate(`/app/productdetails/slug/${id}`);
   };
 
-  // Render loading state
-    if (loading) {
-      return (
-        <div className="flex justify-center items-center min-h-[50vh] bg-gray-50 p-6 rounded-lg shadow-md">
-          <FaSpinner className="animate-spin text-blue-500 text-4xl mr-3" />
-          <p className="text-xl text-gray-700">Loading Shop Page...</p>
-        </div>
-      );
+  // Filter and sort products based on filter state
+  const filteredProducts = useMemo(() => {
+    let sorted = [...products];
+    switch (filter) {
+      case 'low-to-high':
+        sorted.sort((a, b) => (a.salePrice || a.price) - (b.salePrice || b.price));
+        break;
+      case 'high-to-low':
+        sorted.sort((a, b) => (b.salePrice || b.price) - (a.salePrice || a.price));
+        break;
+      case 'discount':
+        sorted.sort((a, b) => (b.discountPercentage || 0) - (a.discountPercentage || 0));
+        break;
+      case 'popular':
+        sorted.sort((a, b) => (b.popularity || 0) - (a.popularity || 0));
+        break;
+      case 'rating':
+        sorted.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+        break;
+      case 'recent':
+      default:
+        sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        break;
     }
+    return sorted;
+  }, [products, filter]);
+
+  // Render loading state
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[50vh] bg-gray-50 p-6 rounded-lg shadow-md">
+        <FaSpinner className="animate-spin text-blue-500 text-4xl mr-3" />
+        <p className="text-xl text-gray-700">Loading Shop Page...</p>
+      </div>
+    );
+  }
 
   if (error) {
     return (
@@ -59,7 +87,7 @@ const ProductListForCustomers = () => {
     );
   }
 
-  if (products.length === 0) {
+  if (filteredProducts.length === 0) {
     return (
       <div className="text-center p-6 bg-gray-50 text-gray-600 rounded-lg shadow-md mt-8">
         <h3 className="font-bold text-xl mb-2">No Products Found</h3>
@@ -74,12 +102,15 @@ const ProductListForCustomers = () => {
         Our Products
       </h1>
 
+      {/* Product Filter */}
+      <ProductFilter filter={filter} setFilter={setFilter} />
+
       {/* Products Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <div
             key={product._id}
-            className="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl flex flex-col" 
+            className="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl flex flex-col"
           >
             {/* Product Image */}
             <div onClick={() => handleViewDetails(product.slug)} className="relative w-full h-48 sm:h-56 overflow-hidden cursor-pointer">
@@ -88,8 +119,8 @@ const ProductListForCustomers = () => {
                 alt={product.name}
                 className="w-full h-full object-cover rounded-t-xl"
                 onError={(e) => {
-                  e.target.onerror = null; // Prevent infinite loop
-                  e.target.src = '/placehold.co/400x400/CCCCCC/000000?text=No+Image'; // Fallback
+                  e.target.onerror = null;
+                  e.target.src = '/placehold.co/400x400/CCCCCC/000000?text=No+Image';
                 }}
               />
               {product.onSale && (
@@ -100,7 +131,7 @@ const ProductListForCustomers = () => {
             </div>
 
             {/* Product Info */}
-            <div className="p-4 flex flex-col flex-grow"> {/* flex-grow to push button to bottom */}
+            <div className="p-4 flex flex-col flex-grow">
               <h2 onClick={() => handleViewDetails(product.slug)} className="text-xl font-semibold text-gray-800 mb-2 truncate cursor-pointer" title={product.name}>
                 {product.name}
               </h2>

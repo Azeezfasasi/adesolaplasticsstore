@@ -12,6 +12,7 @@ import TagIcon from '@rsuite/icons/Tag';
 import MessageIcon from '@rsuite/icons/Message';
 import GearIcon from '@rsuite/icons/Gear';
 import { Sidenav, Nav } from 'rsuite';
+import logotransparent from '../../images/logotransparent.png';
 
 function DashHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -65,7 +66,11 @@ function DashHeader() {
     <div className="bg-white py-4 px-6 flex justify-between items-center shadow-md sticky top-0 z-50 border-b border-solid border-gray-500">
       {/* Logo */}
       <Link to="/" className="flex items-center space-x-2">
-        <h1 className="text-[20px] font-bold text-[#0A1F44]">IT Service Pro</h1>
+        <img
+          src={logotransparent}
+          alt="logo image"
+          className='w-[120px] h-[30px] md:w-[200px] md:h-[40px]'
+        />
       </Link>
 
       {/* Hamburger Icon (Mobile) */}

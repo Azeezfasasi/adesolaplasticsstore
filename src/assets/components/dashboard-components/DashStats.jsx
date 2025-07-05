@@ -22,6 +22,7 @@ function DashStats() {
   const [orderCount, setOrderCount] = useState(0);
   const [customerOrderCount, setCustomerOrderCount] = useState(0);
   const [orderLoading, setOrderLoading] = useState(false);
+  const [productCount, setProductCount] = useState(0);
 
   // Fetch users ONCE on mount
   useEffect(() => {
@@ -98,6 +99,26 @@ function DashStats() {
     fetchCustomerOrders();
   }, [isCustomer]);
 
+  // Fetch total products for admin/super admin
+  useEffect(() => {
+    const fetchProductCount = async () => {
+      if (isSuperAdmin || isAdmin) {
+        try {
+          const res = await fetch(`${API_BASE_URL}/products/count`);
+          if (res.ok) {
+            const data = await res.json();
+            setProductCount(data.count || (typeof data === 'number' ? data : 0));
+          } else {
+            setProductCount(0);
+          }
+        } catch {
+          setProductCount(0);
+        }
+      }
+    };
+    fetchProductCount();
+  }, [isSuperAdmin, isAdmin]);
+
   // Update quotes count when quotes or user changes
   useEffect(() => {
     let myQuotes = 0, myPending = 0, myCompleted = 0;
@@ -147,6 +168,9 @@ function DashStats() {
             </Link>
             <Link to="/app/quote">
               <StatCard label="Quotes Received" value={stats.totalQuotes} color="bg-pink-600" />
+            </Link>
+            <Link to="/app/quote">
+              <StatCard label="Total Products" value={productCount} color="bg-pink-600" />
             </Link>
           </div>
         </>

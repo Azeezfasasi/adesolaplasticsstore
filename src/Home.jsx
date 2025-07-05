@@ -1,19 +1,15 @@
 import {Helmet} from 'react-helmet'
-import CallToAction from "./assets/components/CallToAction"
 import Footer from "./assets/components/Footer"
-import Hero from "./assets/components/Hero"
-import HowItWorks from "./assets/components/HowItWorks"
 import MainHeader from "./assets/components/MainHeader"
 import FeaturedProduct from "./assets/components/product/FeaturedProduct"
 import RecentProduct from './assets/components/product/RecentProduct'
-import RequestQuote from "./assets/components/RequestQuote"
-import ServicesSection from "./assets/components/ServicesSection"
 import TopHeader from "./assets/components/TopHeader"
-import TrackRecords from "./assets/components/TrackRecords"
-import WhyChooseUs from "./assets/components/WhyChooseUs"
 import ShopByCategories from './assets/components/product/ShopByCategories'
 import ProductHero from './assets/components/ProductHero'
 import PlasticProducts from './assets/components/product/PlasticProducts'
+import KitchenEquipmentProducts from './assets/components/product/KitchenEquipmentProducts'
+import HouseholdPlasticsProducts from './assets/components/product/HouseholdPlasticsProducts'
+import KitchenAppliancesProducts from './assets/components/product/KitchenAppliancesProducts'
 
 
 function Home() {
@@ -29,6 +25,9 @@ function Home() {
     <ShopByCategories />
     <FeaturedProduct />
     <RecentProduct />
+    <KitchenEquipmentProducts />
+    <HouseholdPlasticsProducts />
+    <KitchenAppliancesProducts />
     <PlasticProducts />
     <Footer />
     </>

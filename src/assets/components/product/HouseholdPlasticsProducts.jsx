@@ -3,33 +3,23 @@ import axios from 'axios';
 import { API_BASE_URL } from '../../../config/api';
 import { Link } from 'react-router-dom';
 
-const PlasticProducts = () => {
-  // Fetch both 'chairs' and 'tables' categories
-  const { data: categories, isLoading: loadingCategories, isError: errorCategories, error: categoriesError } = useQuery({
-    queryKey: ['categories', 'chairs-tables'],
+const HouseholdPlasticsProducts = () => {
+  // Fetch the 'chairs' category first
+  const { data: householdPlasticsCategory, isLoading: loadingCategory, isError: errorCategory, error: categoryError } = useQuery({
+    queryKey: ['category', 'household-plastics'],
     queryFn: async () => {
-      const [chairsRes, tablesRes] = await Promise.all([
-        axios.get(`${API_BASE_URL}/categories/slug/chairs`),
-        axios.get(`${API_BASE_URL}/categories/slug/tables`)
-      ]);
-      return [chairsRes.data, tablesRes.data];
+      const res = await axios.get(`${API_BASE_URL}/categories/slug/household-plastics`);
+      return res.data;
     },
   });
 
-  // Fetch products for both categories
+  // Fetch products for the 'chairs' category
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['products-chairs-tables', categories?.[0]?._id, categories?.[1]?._id],
-    enabled: !!categories?.[0]?._id && !!categories?.[1]?._id,
+    queryKey: ['products-household-plastics', householdPlasticsCategory?._id],
+    enabled: !!householdPlasticsCategory?._id,
     queryFn: async () => {
-      const [chairsProductsRes, tablesProductsRes] = await Promise.all([
-        axios.get(`${API_BASE_URL}/products?category=${categories[0]._id}&limit=5`),
-        axios.get(`${API_BASE_URL}/products?category=${categories[1]._id}&limit=5`)
-      ]);
-      // Combine and return both products arrays
-      return [
-        ...(chairsProductsRes.data.data || chairsProductsRes.data || []),
-        ...(tablesProductsRes.data.data || tablesProductsRes.data || [])
-      ];
+      const res = await axios.get(`${API_BASE_URL}/products?category=${householdPlasticsCategory._id}&limit=5`);
+      return res.data.data || res.data;
     },
   });
 
@@ -40,7 +30,7 @@ const PlasticProducts = () => {
       {/* Header section */}
       <div className="flex justify-between items-center mb-6 md:mb-8">
         <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-orange-500 border-b-2 border-orange-500 pb-1">
-          Plastic Chairs & Tables
+          Household Plastics
         </h2>
         <Link to="/app/shop" className="text-orange-500 hover:underline text-sm md:text-base flex items-center">
           View All
@@ -58,8 +48,8 @@ const PlasticProducts = () => {
       </div>
 
       {/* Loading/Error states */}
-      {(loadingCategories || isLoading) && <div className="text-center py-8">Loading products...</div>}
-      {(errorCategories || isError) && <div className="text-center text-red-600 py-8">{categoriesError?.message || error?.message || 'Failed to load products.'}</div>}
+      {(loadingCategory || isLoading) && <div className="text-center py-8">Loading products...</div>}
+      {(errorCategory || isError) && <div className="text-center text-red-600 py-8">{categoryError?.message || error?.message || 'Failed to load products.'}</div>}
 
       {/* Deals section - Responsive Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -118,4 +108,4 @@ const PlasticProducts = () => {
   );
 };
 
-export default PlasticProducts;
+export default HouseholdPlasticsProducts;

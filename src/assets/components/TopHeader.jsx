@@ -13,11 +13,11 @@ function TopHeader() {
         <div className="flex flex-col md:flex-row items-center space-y-1 md:space-y-0 md:space-x-6 justify-center md:justify-end">
             <div className="flex items-center space-x-1">
             <Phone className="w-4 h-4" />
-            <span>Fast Order: <a href="tel:08117256648" className="text-white ">(+234) 08029580850</a></span>
+            <span>Fast Order: <a href="tel:08029580850" className="text-white ">(+234) 08029580850</a></span>
             </div>
             <div className="flex items-center space-x-1">
             <Mail className="w-4 h-4" />
-            <a href="mailto:infohomepro@mail.com" className="text-white">info@adesolaplasticstore.com</a>
+            <a href="mailto:info@adesolaplasticstore.com" className="text-white">info@adesolaplasticstore.com</a>
             </div>
         </div>
     </div>
