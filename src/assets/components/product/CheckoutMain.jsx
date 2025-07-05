@@ -23,6 +23,7 @@ const CheckoutMain = () => {
     city: '',
     state: '',
     zipCode: '',
+    note: '',
     country: 'Nigeria',
   });
 
@@ -44,6 +45,7 @@ const CheckoutMain = () => {
         city: user.shippingAddress.city || '',
         state: user.shippingAddress.state || '',
         zipCode: user.shippingAddress.zipCode || '',
+        note: user.shippingAddress.note || '',
         country: user.shippingAddress.country || 'Nigeria',
       });
     } else if (user) {
@@ -279,13 +281,13 @@ const CheckoutMain = () => {
   }
 
   // WhatsApp order message and number
-  const whatsappNumber = "2348117256648";
+  const whatsappNumber = "2348029580850";
   const orderLines = cart.items.map(item => `• ${item.name} x${item.quantity} @ ${formatPrice(parseFloat(item.price))} = ${formatPrice(parseFloat(item.price) * item.quantity)}`);
   const subtotalLine = `Subtotal: ${formatPrice(subtotal)}`;
   const shippingLine = `Shipping: ${formatPrice(estimatedShipping)}`;
   const taxLine = `Tax (${taxRate * 100}%): ${formatPrice(taxAmount)}`;
   const totalLine = `Total: ${formatPrice(totalAmount)}`;
-  const addressLine = `Shipping Address:\n${shippingAddress.fullName}\n${shippingAddress.address1}${shippingAddress.address2 ? ", " + shippingAddress.address2 : ""}\n${shippingAddress.city}, ${shippingAddress.state}, ${shippingAddress.zipCode}\n${shippingAddress.country}`;
+  const addressLine = `Shipping Address:\n${shippingAddress.fullName}\n${shippingAddress.address1}${shippingAddress.address2 ? ", " + shippingAddress.address2 : ""}\n${shippingAddress.city}, ${shippingAddress.state}, ${shippingAddress.zipCode}\n${shippingAddress.country}\n\nNOTE: ${shippingAddress.note || 'None'}`;
   const contactLine = user && user.email ? `Email: ${user.email}` : '';
   const whatsappOrderMessage =
     `I'd like to place an order on Adesola Plastics Store:\n\n` +
@@ -371,12 +373,16 @@ const CheckoutMain = () => {
                   {/* Add more countries as needed */}
                 </select>
               </div>
-            </div>
+              <div>
+                <label htmlFor="zipCode" className="block text-sm font-medium text-gray-700 mb-1">Additional Note (Optional) - <span className='text-orange-500'>You can add any additional information for the seller here.</span></label>
+                <textarea name="note" id="note" onChange={handleShippingChange} placeholder='Write a message for the seller here.' className="w-full border border-gray-300'rounded-md shadow-sm px-3 py-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+              </div>
+            </div>    
           </div>
 
           <div>
               <h2 className="text-2xl font-semibold text-gray-800 mb-6 border-b pb-3">Payment Method</h2>
-              <div className="space-y-3">
+              <div clName="space-y-3">
                 <label className="flex items-center">
                   <input
                     type="radio"

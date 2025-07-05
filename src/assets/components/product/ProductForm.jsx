@@ -309,7 +309,8 @@ const ProductForm = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Basic Information */}
         <div className="bg-gray-50 p-4 rounded-md">
-          <h3 className="text-lg font-medium text-gray-800 mb-4">Basic Information</h3>
+          <h3 className="text-lg font-medium text-gray-800">Basic Information</h3>
+          <p className='italic mb-4'>Please note that all fields marked with asterisk (<span className='text-red-700 text-[20px]'>*</span>) are required.</p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -322,7 +323,7 @@ const ProductForm = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full border ${validationErrors.name ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                className={`w-full border ${validationErrors.name ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500`}
               />
               {validationErrors.name && (
                 <p className="text-red-500 text-xs mt-1">{validationErrors.name}</p>
@@ -331,7 +332,7 @@ const ProductForm = () => {
             
             <div>
               <label htmlFor="brand" className="block text-sm font-medium text-gray-700 mb-1">
-                Brand
+                Brand <span className='text-orange-500'>(Optional)</span>
               </label>
               <input
                 type="text"
@@ -339,7 +340,7 @@ const ProductForm = () => {
                 name="brand"
                 value={formData.brand}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
             
@@ -352,7 +353,7 @@ const ProductForm = () => {
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
-                className={`w-full border ${validationErrors.category ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                className={`w-full border ${validationErrors.category ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500`}
               >
                 <option value="">Select a category</option>
                 {categories.map(category => (
@@ -368,7 +369,7 @@ const ProductForm = () => {
             
             <div>
               <label htmlFor="sku" className="block text-sm font-medium text-gray-700 mb-1">
-                SKU<span className='text-red-700'>*</span>
+                SKU<span className='text-red-700'>* <span className='text-orange-500'>(This will be generated automatically)</span></span>
               </label>
               <input
                 type="text"
@@ -377,7 +378,7 @@ const ProductForm = () => {
                 readOnly
                 value={formData.sku}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
           </div>
@@ -425,7 +426,7 @@ const ProductForm = () => {
                   name="price"
                   value={formData.price}
                   onChange={handleChange}
-                  className={`w-full pl-8 border ${validationErrors.price ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                  className={`w-full pl-8 border ${validationErrors.price ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500`}
                 />
               </div>
               {validationErrors.price && (
@@ -435,7 +436,7 @@ const ProductForm = () => {
 
             <div>
               <label htmlFor="originalPrice" className="block text-sm font-medium text-gray-700 mb-1">
-                Discounted Price <span className='text-[12px] font-normal'>(Must be less than original price)</span>
+                Discounted Price <span className='text-[12px] text-orange-600 font-semibold'>(Optional - Must be less than original price)</span>
               </label>
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">₦</span>
@@ -445,7 +446,7 @@ const ProductForm = () => {
                   name="originalPrice"
                   value={formData.originalPrice}
                   onChange={handleChange}
-                  className={`w-full pl-8 border ${validationErrors.originalPrice ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                  className={`w-full pl-8 border ${validationErrors.originalPrice ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500`}
                 />
               </div>
               {validationErrors.originalPrice && (
@@ -463,7 +464,7 @@ const ProductForm = () => {
                 name="stockQuantity"
                 value={formData.stockQuantity}
                 onChange={handleChange}
-                className={`w-full border ${validationErrors.stockQuantity ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                className={`w-full border ${validationErrors.stockQuantity ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500`}
               />
               {validationErrors.stockQuantity && (
                 <p className="text-red-500 text-xs mt-1">{validationErrors.stockQuantity}</p>
@@ -479,7 +480,7 @@ const ProductForm = () => {
                 name="isOnSale"
                 checked={formData.isOnSale}
                 onChange={handleChange}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                className="h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded"
               />
               <label htmlFor="isOnSale" className="ml-2 block text-sm text-gray-700">
                 On Sale
@@ -498,9 +499,9 @@ const ProductForm = () => {
                     name="discountPercentage"
                     value={formData.discountPercentage}
                     onChange={handleChange}
-                    className={`w-full pr-8 border ${validationErrors.discountPercentage ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                    className={`w-full pr-8 border ${validationErrors.discountPercentage ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500`}
                   />
-                  <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500">%</span>
+                  <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-orange-600">%</span>
                 </div>
                 {validationErrors.discountPercentage && (
                   <p className="text-red-500 text-xs mt-1">{validationErrors.discountPercentage}</p>
@@ -517,7 +518,7 @@ const ProductForm = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
               <label htmlFor="colors" className="block text-sm font-medium text-gray-700 mb-1">
-                Colors (comma separated)
+                Colors <span className='text-[12px] text-orange-500 font-normal'>(Optional - Must be separated with comma)</span>
               </label>
               <input
                 type="text"
@@ -525,14 +526,14 @@ const ProductForm = () => {
                 name="colors"
                 value={formData.colors}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 placeholder="Red, Blue, Green"
               />
             </div>
 
             <div>
               <label htmlFor="sizes" className="block text-sm font-medium text-gray-700 mb-1">
-                Sizes (comma separated)
+                Sizes <span className='text-[12px] text-orange-500 font-normal'>(Optional - Must be separated with comma)</span>
               </label>
               <input
                 type="text"
@@ -540,14 +541,14 @@ const ProductForm = () => {
                 name="sizes"
                 value={formData.sizes}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 placeholder="S, M, L, XL"
               />
             </div>
 
             <div>
               <label htmlFor="tags" className="block text-sm font-medium text-gray-700 mb-1">
-                Tags (comma separated)
+                Tags <span className='text-[12px] text-orange-500 font-normal'>(Optional - Must be separated with comma)</span>
               </label>
               <input
                 type="text"
@@ -555,7 +556,7 @@ const ProductForm = () => {
                 name="tags"
                 value={formData.tags}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 placeholder="new, summer, sale"
               />
             </div>
@@ -564,7 +565,7 @@ const ProductForm = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-4">
             <div>
               <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-1">
-                Weight (kg)
+                Weight (kg) <span className='text-[12px] text-orange-500 font-normal'>(Optional)</span>
               </label>
               <input
                 type="text"
@@ -572,13 +573,13 @@ const ProductForm = () => {
                 name="weight"
                 value={formData.weight}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
             <div>
               <label htmlFor="dimensions.length" className="block text-sm font-medium text-gray-700 mb-1">
-                Length (cm)
+                Length (cm) <span className='text-[12px] text-orange-500 font-normal'>(Optional)</span>
               </label>
               <input
                 type="text"
@@ -586,13 +587,13 @@ const ProductForm = () => {
                 name="dimensions.length"
                 value={formData.dimensions.length}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
             <div>
               <label htmlFor="dimensions.width" className="block text-sm font-medium text-gray-700 mb-1">
-                Width (cm)
+                Width (cm) <span className='text-[12px] text-orange-500 font-normal'>(Optional)</span>
               </label>
               <input
                 type="text"
@@ -600,13 +601,13 @@ const ProductForm = () => {
                 name="dimensions.width"
                 value={formData.dimensions.width}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
             <div>
               <label htmlFor="dimensions.height" className="block text-sm font-medium text-gray-700 mb-1">
-                Height (cm)
+                Height (cm) <span className='text-[12px] text-orange-500 font-normal'>(Optional)</span>
               </label>
               <input
                 type="text"
@@ -614,7 +615,7 @@ const ProductForm = () => {
                 name="dimensions.height"
                 value={formData.dimensions.height}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
           </div>
@@ -627,7 +628,7 @@ const ProductForm = () => {
           {/* Image Upload */}
           <div className="mb-6">
             <label htmlFor="images" className="block text-sm font-medium text-gray-700 mb-2">
-              Upload Images
+              Upload Images <span className='text-[12px} text-orange-500 font-semibold'>You can add up to 10 images</span>
             </label>
             <div className="border-2 border-dashed border-gray-300 rounded-md p-6 text-center">
               <div className="flex justify-center">
@@ -635,6 +636,7 @@ const ProductForm = () => {
               </div>
               <p className="text-gray-500 mb-2">Drag and drop images here, or click to select files</p>
               <p className="text-xs text-gray-400 mb-4">PNG, JPG, GIF up to 5MB</p>
+              <p className="text-xs text-orange-500 mb-4">You can add up to 10 images</p>
               <input
                 type="file"
                 id="images"
@@ -646,7 +648,7 @@ const ProductForm = () => {
               />
               <label
                 htmlFor="images"
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 cursor-pointer"
+                className="inline-flex items-center px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 cursor-pointer"
               >
                 <FaUpload className="mr-2" />
                 Select Files
@@ -717,7 +719,7 @@ const ProductForm = () => {
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               >
                 <option value="draft">Draft</option>
                 <option value="published">Published</option>
@@ -732,10 +734,10 @@ const ProductForm = () => {
                 name="isFeatured"
                 checked={formData.isFeatured}
                 onChange={handleChange}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                className="h-4 w-4 text-orange-500 focus:ring-orange-500 border-gray-300 rounded"
               />
               <label htmlFor="isFeatured" className="ml-2 block text-sm text-gray-700">
-                Featured Product (shown on homepage)
+                Featured Product <span className='text-[12px] font-normal text-orange-500'>(If checked, this will make this product to show on homepage under Featured Products)</span>
               </label>
             </div>
           </div>

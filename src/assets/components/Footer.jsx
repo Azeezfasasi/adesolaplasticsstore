@@ -5,7 +5,7 @@ import SubscribeToNewsletter from './SubscribeToNewsletter'
 
 function Footer() {
   return (
-    <footer className="bg-[#0A1F44] text-white pt-10 pb-4 px-4">
+    <footer className="bg-orange-800 text-white pt-10 pb-4 px-4">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:justify-between gap-8">
         {/* Company Info */}
         <div className="flex-1 mb-6 md:mb-0">

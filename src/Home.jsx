@@ -10,6 +10,7 @@ import PlasticProducts from './assets/components/product/PlasticProducts'
 import KitchenEquipmentProducts from './assets/components/product/KitchenEquipmentProducts'
 import HouseholdPlasticsProducts from './assets/components/product/HouseholdPlasticsProducts'
 import KitchenAppliancesProducts from './assets/components/product/KitchenAppliancesProducts'
+import RecentlyViewedProducts from './assets/components/product/RecentlyViewedProducts'
 
 
 function Home() {
@@ -29,6 +30,7 @@ function Home() {
     <HouseholdPlasticsProducts />
     <KitchenAppliancesProducts />
     <PlasticProducts />
+    <RecentlyViewedProducts />
     <Footer />
     </>
   )

@@ -22,6 +22,31 @@ const ProductDetailsMain = () => {
 
   const { user } = useContext(UserContext); // Assuming useUser provides 'user'
 
+  const RECENTLY_VIEWED_KEY = 'recentlyViewedProducts';
+
+  function addToRecentlyViewed(product) {
+    if (!product) return;
+    let viewed = [];
+    try {
+      viewed = JSON.parse(localStorage.getItem(RECENTLY_VIEWED_KEY)) || [];
+    } catch {
+      viewed = [];
+    }
+    // Remove if already exists
+    viewed = viewed.filter(p => p._id !== product._id);
+    // Add to front
+    viewed.unshift(product);
+    // Limit to 10
+    if (viewed.length > 10) viewed = viewed.slice(0, 10);
+    localStorage.setItem(RECENTLY_VIEWED_KEY, JSON.stringify(viewed));
+  }
+
+  useEffect(() => {
+    if (product) {
+      addToRecentlyViewed(product);
+    }
+  }, [product]);
+
   // Use the useCart hook
   const {
     addToCart,
@@ -584,7 +609,7 @@ const ProductDetailsMain = () => {
                       name="rating"
                       value={reviewData.rating}
                       onChange={handleReviewChange}
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                     >
                       <option value="5">5 - Excellent</option>
                       <option value="4">4 - Very Good</option>
@@ -604,7 +629,7 @@ const ProductDetailsMain = () => {
                       value={reviewData.comment}
                       onChange={handleReviewChange}
                       rows="4"
-                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                       placeholder="Share your thoughts about this product"
                     ></textarea>
                   </div>
@@ -613,13 +638,13 @@ const ProductDetailsMain = () => {
                     <button
                       type="button"
                       onClick={() => setShowReviewForm(false)}
-                      className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50"
+                      className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 cursor-pointer"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
-                      className="px-4 py-2 bg-blue-600 border border-transparent rounded-md text-sm font-medium text-white hover:bg-blue-700"
+                      className="px-4 py-2 bg-orange-500 border border-transparent rounded-md text-sm font-medium text-white hover:bg-orange-600 cursor-pointer"
                       disabled={!user}
                       title={!user ? "Log in to submit a review" : ""}
                     >
@@ -631,7 +656,7 @@ const ProductDetailsMain = () => {
                 <button
                   type="button"
                   onClick={() => setShowReviewForm(true)}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                  className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 cursor-pointer"
                 >
                   Write a Review
                 </button>
