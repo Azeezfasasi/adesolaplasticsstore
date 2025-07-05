@@ -22,10 +22,11 @@ function Dashboard() {
       <div className='w-full lg:w-[80%]'>
         <DashStats />
         {(isSuperAdmin || isAdmin) && (
-          <DashChart />
-        )}
-        {(isSuperAdmin || isAdmin) && (
         <ProductChart />
+        )}
+        <br />
+        {(isSuperAdmin || isAdmin) && (
+          <DashChart />
         )}
       </div>
     </div>

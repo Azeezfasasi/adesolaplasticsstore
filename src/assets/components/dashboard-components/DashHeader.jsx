@@ -26,23 +26,24 @@ function DashHeader() {
   // Map route paths to eventKeys
   const menuKeyByPath = {
     '/app/dashboard': '1',
-    '/app/quote': '2',
-    '/app/blogposts': '3-1',
-    '/app/addnewpost': '3-2',
-    '/app/profile': '4',
-    '/app/allusers': '5-1',
-    '/app/addnewuser': '5-2',
-    '/app/changeuserpassword': '5-3',
-    '/app/products': '6-1',
-    '/app/addproduct': '6-2',
-    '/app/productcategories': '6-3',
-    '/app/addproductcategory': '6-4',
-    '/app/userorderdetails': '7',
-    '/app/adminorderlist': '8',
-    '/app/sendnewsletter': '9-1',
-    '/app/allnewsletter': '9-2',
-    '/app/Newslettersubscribers': '9-3',
-    '/app/mysettings': '10',
+    '/app/adminorderlist': '2',
+    '/app/products': '3-1',
+    '/app/addproduct': '3-2',
+    '/app/productcategories': '3-3',
+    '/app/addproductcategory': '3-4',
+    '/app/quote': '4',
+    '/app/blogposts': '5-1',
+    '/app/addnewpost': '5-2',
+    '/app/sendnewsletter': '6-1',
+    '/app/allnewsletter': '6-2',
+    '/app/Newslettersubscribers': '6-3',
+    '/app/allusers': '7-1',
+    '/app/addnewuser': '7-2',
+    '/app/changeuserpassword': '7-3',
+    '/app/userorderdetails': '8',
+    '/app/trackorder': '9', 
+    '/app/profile': '10',
+    '/app/mysettings': '11',
   };
   const activeKey = menuKeyByPath[location.pathname];
 
@@ -116,10 +117,18 @@ function DashHeader() {
       {/* Navigation */}
       <div className="hidden lg:flex space-x-6 font-medium text-[#0A1F44] items-center">
         <Link to="/">Home</Link>
-        {user?.role === 'admin' || user?.role === 'super admin' ? (
+        {user?.role === 'customer' && (
           <Link to="/app/wishlist">Wishlist</Link>
-        ) : null}
-        <Link to="/app/cart">Cart</Link>
+        )}
+        {user?.role === 'customer' && (
+          <Link to="/app/cart">Cart</Link>
+        )}
+        {user?.role === 'customer' && (
+          <Link to="/app/trackorder">Track Orders</Link>
+        )}
+        {(user?.role === 'admin' || user?.role === 'super admin') && (
+          <Link to="/app/products">All Products</Link>
+        )}
         <Link to="/app/profile">Profile</Link>
         <div className="flex flex-row items-center gap-2 ml-4 relative profile-dropdown">
           <div className="relative">
@@ -137,6 +146,9 @@ function DashHeader() {
                   <span className="text-gray-500 text-xs capitalize">{user?.role}</span>
                 </div>
                 <Link to="/app/dashboard" className="block px-4 py-2 hover:bg-gray-100 text-[#0A1F44]" onClick={() => setProfileMenuOpen(false)}>Dashboard</Link>
+                {(user?.role === 'admin' || user?.role === 'super admin') && (
+                  <Link to="/app/products" className="block px-4 py-2 hover:bg-gray-100 text-[#0A1F44]" onClick={() => setProfileMenuOpen(false)}>Manage Products</Link>
+                )}
                 <Link to="/app/profile" className="block px-4 py-2 hover:bg-gray-100 text-[#0A1F44]" onClick={() => setProfileMenuOpen(false)}>Profile</Link>
                 {(user?.role === 'admin' || user?.role === 'super admin') && (
                   <Link to="/app/allusers" className="block px-4 py-2 hover:bg-gray-100 text-[#0A1F44]" onClick={() => setProfileMenuOpen(false)}>Users</Link>
@@ -168,55 +180,60 @@ function DashHeader() {
                     </Nav.Item>
                     )}
                     {(isSuperAdmin || isAdmin) && (
-                    <Nav.Item eventKey="2" icon={<DetailIcon />} as={Link} to="/app/quote">
-                        Quote Requests
-                    </Nav.Item>
-                    )}
-                    {(isSuperAdmin || isAdmin) && (
-                    <Nav.Menu eventKey="3" title="Blog Post" icon={<ListIcon />}>
-                        <Nav.Item eventKey="3-1" as={Link} to="/app/blogposts">All Posts</Nav.Item>
-                        <Nav.Item eventKey="3-2" as={Link} to="/app/addnewpost">Add New Post</Nav.Item>
-                    </Nav.Menu>
-                    )}
-                    {(isSuperAdmin || isAdmin || isUser || isCustomer) && (
-                    <Nav.Item eventKey="4" icon={<UserInfoIcon />} as={Link} to="/app/profile">
-                        Profile
-                    </Nav.Item>
-                    )}
-                    {(isSuperAdmin || isAdmin) && (
-                    <Nav.Menu eventKey="5" title="Users" icon={<PeoplesIcon />}>
-                        <Nav.Item eventKey="5-1" as={Link} to="/app/allusers">All Users</Nav.Item>
-                        <Nav.Item eventKey="5-2" as={Link} to="/app/addnewuser">Add New User</Nav.Item>
-                        <Nav.Item eventKey="5-2" as={Link} to="/app/changeuserpassword">Change User Password</Nav.Item>
-                    </Nav.Menu>
-                    )}
-                    {(isSuperAdmin || isAdmin) && (
-                    <Nav.Menu eventKey="6" title="Product" icon={<GridIcon />}>
-                        <Nav.Item eventKey="6-1" as={Link} to="/app/products">All Products</Nav.Item>
-                        <Nav.Item eventKey="5-2" as={Link} to="/app/addproduct">Add Products</Nav.Item>
-                        <Nav.Item eventKey="5-2" as={Link} to="/app/productcategories">Product Categories</Nav.Item>
-                        <Nav.Item eventKey="5-2" as={Link} to="/app/addproductcategory">Add Product Category</Nav.Item>
-                    </Nav.Menu>
-                    )}
-                    {(isUser || isCustomer) && (
-                    <Nav.Item eventKey="7" icon={<TagIcon />} as={Link} to="/app/userorderdetails">
-                        My Order
-                    </Nav.Item>
-                    )}
-                    {(isSuperAdmin || isAdmin) && (
-                    <Nav.Item eventKey="8" icon={<TagIcon />} as={Link} to="/app/adminorderlist">
+                    <Nav.Item eventKey="2" icon={<TagIcon />} as={Link} to="/app/adminorderlist">
                         All Order 
                     </Nav.Item>
                     )}
                     {(isSuperAdmin || isAdmin) && (
-                    <Nav.Menu eventKey="9" title="Newsletter" icon={<MessageIcon />}>
-                        <Nav.Item eventKey="9-1" as={Link} to="/app/sendnewsletter">Send Newsletter</Nav.Item>
-                        <Nav.Item eventKey="9-2" as={Link} to="/app/allnewsletter">All Newsletters</Nav.Item>
-                        <Nav.Item eventKey="9-3" as={Link} to="/app/Newslettersubscribers">Subscribers</Nav.Item>
+                    <Nav.Menu eventKey="3" title="Product" icon={<GridIcon />}>
+                        <Nav.Item eventKey="3-1" as={Link} to="/app/products">All Products</Nav.Item>
+                        <Nav.Item eventKey="3-2" as={Link} to="/app/addproduct">Add Products</Nav.Item>
+                        <Nav.Item eventKey="3-3" as={Link} to="/app/productcategories">Product Categories</Nav.Item>
+                        <Nav.Item eventKey="3-4" as={Link} to="/app/addproductcategory">Add Product Category</Nav.Item>
                     </Nav.Menu>
                     )}
+                    {(isSuperAdmin || isAdmin) && (
+                    <Nav.Item eventKey="4" icon={<DetailIcon />} as={Link} to="/app/quote">
+                        Quote Requests
+                    </Nav.Item>
+                    )}
+                    {(isSuperAdmin || isAdmin) && (
+                    <Nav.Menu eventKey="5" title="Blog Post" icon={<ListIcon />}>
+                        <Nav.Item eventKey="5-1" as={Link} to="/app/blogposts">All Posts</Nav.Item>
+                        <Nav.Item eventKey="5-2" as={Link} to="/app/addnewpost">Add New Post</Nav.Item>
+                    </Nav.Menu>
+                    )}
+                    {(isSuperAdmin || isAdmin) && (
+                    <Nav.Menu eventKey="6" title="Newsletter" icon={<MessageIcon />}>
+                        <Nav.Item eventKey="6-1" as={Link} to="/app/sendnewsletter">Send Newsletter</Nav.Item>
+                        <Nav.Item eventKey="6-2" as={Link} to="/app/allnewsletter">All Newsletters</Nav.Item>
+                        <Nav.Item eventKey="6-3" as={Link} to="/app/Newslettersubscribers">Subscribers</Nav.Item>
+                    </Nav.Menu>
+                    )}
+                    {(isSuperAdmin || isAdmin) && (
+                    <Nav.Menu eventKey="7" title="Users" icon={<PeoplesIcon />}>
+                        <Nav.Item eventKey="7-1" as={Link} to="/app/allusers">All Users</Nav.Item>
+                        <Nav.Item eventKey="7-2" as={Link} to="/app/addnewuser">Add New User</Nav.Item>
+                        <Nav.Item eventKey="7-3" as={Link} to="/app/changeuserpassword">Change User Password</Nav.Item>
+                    </Nav.Menu>
+                    )}
+                    {(isUser || isCustomer) && (
+                    <Nav.Item eventKey="8" icon={<TagIcon />} as={Link} to="/app/userorderdetails">
+                        My Order
+                    </Nav.Item>
+                    )}
+                    {(isUser || isCustomer) && (
+                    <Nav.Item eventKey="9" icon={<TagIcon />} as={Link} to="/app/trackorder">
+                        Track Your Orders
+                    </Nav.Item>
+                    )}
                     {(isSuperAdmin || isAdmin || isUser || isCustomer) && (
-                    <Nav.Item eventKey="10" icon={<GearIcon />} as={Link} to="/app/mysettings">
+                    <Nav.Item eventKey="10" icon={<UserInfoIcon />} as={Link} to="/app/profile">
+                        Profile
+                    </Nav.Item>
+                    )}
+                    {(isSuperAdmin || isAdmin || isUser || isCustomer) && (
+                    <Nav.Item eventKey="11" icon={<GearIcon />} as={Link} to="/app/mysettings">
                         Settings
                     </Nav.Item>
                     )}

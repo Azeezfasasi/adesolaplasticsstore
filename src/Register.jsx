@@ -10,7 +10,7 @@ function Register() {
     name: '',
     email: '',
     password: '',
-    role: 'user'
+    role: 'customer', // Default role
   });
   const { register, loading, error, success, user } = useUser();
   const navigate = useNavigate();

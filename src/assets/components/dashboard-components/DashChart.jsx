@@ -65,15 +65,6 @@ export default function DashChart() {
     return null;
   };
 
-  // Get colors for current dataset
-  // const getColors = () => {
-  //   if (activeChart === 'status') {
-  //     return statusData.map(item => STATUS_COLORS[item.name] || '#cbd5e1');
-  //   } else {
-  //     return topServices.map((_, index) => SERVICE_COLORS[index % SERVICE_COLORS.length]);
-  //   }
-  // };
-
   // Get current data based on active chart
   const getCurrentData = () => {
     return activeChart === 'status' ? statusData : topServices;

@@ -155,22 +155,19 @@ function DashStats() {
               <StatCard label="Total Users" value={stats.totalUsers} color="bg-blue-600" />
             </Link>
             <Link to="/app/allusers">
-              <StatCard label="Super Admins" value={stats.superAdmins} color="bg-purple-700" />
-            </Link>
-            <Link to="/app/allusers">
               <StatCard label="Admins" value={stats.admins} color="bg-indigo-600" />
             </Link>
             <Link to="/app/allusers">
               <StatCard label="Customers" value={stats.customers} color="bg-green-600" />
+            </Link>
+            <Link to="/app/products">
+              <StatCard label="Total Products" value={productCount} color="bg-amber-600" />
             </Link>
             <Link to="/app/adminorderlist">
               <StatCard label="Order Received" value={orderCount} color="bg-yellow-500" />
             </Link>
             <Link to="/app/quote">
               <StatCard label="Quotes Received" value={stats.totalQuotes} color="bg-pink-600" />
-            </Link>
-            <Link to="/app/quote">
-              <StatCard label="Total Products" value={productCount} color="bg-pink-600" />
             </Link>
           </div>
         </>
