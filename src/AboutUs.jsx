@@ -10,7 +10,7 @@ function AboutUs() {
   return (
     <>
     <Helmet>
-      <title>About Us - IT Service Pro</title>
+      <title>About Us - Adesola Plastics Store</title>
     </Helmet>
     <TopHeader />
     <MainHeader />

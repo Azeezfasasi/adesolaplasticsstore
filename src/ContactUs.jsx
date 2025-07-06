@@ -9,7 +9,7 @@ function ContactUs() {
   return (
     <>
     <Helmet>
-      <title>Contact Us - IT Service Pro</title>
+      <title>Contact Us - Adesola Plastics Store</title>
     </Helmet>
     <TopHeader />
     <MainHeader />

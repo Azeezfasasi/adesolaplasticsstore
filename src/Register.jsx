@@ -33,7 +33,7 @@ function Register() {
   return (
     <>
       <Helmet>
-        <title>Register - IT Service Pro</title>
+        <title>Register - Adesola Plastics Store</title>
       </Helmet>
       <TopHeader />
       <MainHeader />
