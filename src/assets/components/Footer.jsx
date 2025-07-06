@@ -43,7 +43,7 @@ function Footer() {
         <SubscribeToNewsletter />
       </div>
       <div className="border-t border-gray-500 mt-8 pt-4 text-center text-gray-100 text-xs">
-        &copy; {new Date().getFullYear()} Adesola Plastics Store. All rights reserved.
+        &copy; {new Date().getFullYear()} Adesola Plastics Store. All rights reserved. Developed and maintained by <a href="https://wa.me/8117256648" className="text-[#00B9F1] hover:text-[#00B9F1] transition">Sense Solutions</a>.
       </div>
     </footer>
   )
