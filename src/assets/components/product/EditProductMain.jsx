@@ -273,7 +273,7 @@ const EditProduct = () => {
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-15 lg:6">
           {/* Name and Description */}
           <div>
-            <label htmlFor="name" className='block text-lg font-medium mb-2'>Name:</label>
+            <label htmlFor="name" className='block text-sm font-medium text-gray-700 mb-1'>Product Name<span className='text-red-700'>*</span></label>
             <input
               type="text"
               id="name"
@@ -285,7 +285,7 @@ const EditProduct = () => {
             {validationErrors.name && <p className="text-red-500 text-sm mt-1">{validationErrors.name}</p>}
           </div>
           <div>
-            <label htmlFor="description" className='block text-lg font-medium mb-2'>Description:</label>
+            <label htmlFor="description" className='block text-sm font-medium text-gray-700 mb-1'>Description<span className='text-red-700'>*</span></label>
             <Editor
               apiKey={RICHT_TEXT_API}
               onInit={(evt, editor) => (editorRef.current = editor)}
@@ -308,7 +308,9 @@ const EditProduct = () => {
           {/* Brand, Price, Discounted Price */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label htmlFor="brand" className='block text-lg font-medium mb-2'>Brand:</label>
+              <label htmlFor="brand" className="block text-sm font-medium text-gray-700 mb-1">
+                Brand <span className='text-orange-500'>(Optional)</span>
+              </label>
               <input
                 type="text"
                 id="brand"
@@ -319,9 +321,9 @@ const EditProduct = () => {
               />
             </div>
             <div>
-              <label htmlFor="price" className='block text-lg font-medium mb-2'>Price:</label>
+              <label htmlFor="price" className='block text-sm font-medium text-gray-700 mb-1'>Price<span className='text-red-700'>*</span></label>
               <input
-                type="number" // Changed to number type for better input control
+                type="number" 
                 id="price"
                 value={formData.price}
                 onChange={handleChange}
@@ -332,8 +334,8 @@ const EditProduct = () => {
               />
               {validationErrors.price && <p className="text-red-500 text-sm mt-1">{validationErrors.price}</p>}
             </div>
-            <div>
-              <label htmlFor="originalPrice" className='block text-lg font-medium mb-2'>Original Price:</label>
+            {/* <div>
+              <label htmlFor="originalPrice" className='block text-sm font-medium text-gray-700 mb-1'>Disconted Price <span className='text-[12px] text-orange-600 font-semibold'>(Optional - Must be less than original price)</span></label>
               <input
                 type="number" // Changed to number type
                 id="originalPrice"
@@ -344,9 +346,9 @@ const EditProduct = () => {
                 min="0"
                 className="block w-full p-4 text-lg border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-gray-500"
               />
-            </div>
+            </div> */}
             <div>
-              <label htmlFor="discountPercentage" className='block text-lg font-medium mb-2'>Discount Percentage (%):</label>
+              <label htmlFor="discountPercentage" className='block text-sm font-medium text-gray-700 mb-1'>Discount Percentage (%) <span className='text-orange-500'>(Optional)</span></label>
               <input
                 type="number"
                 id="discountPercentage"
@@ -363,7 +365,7 @@ const EditProduct = () => {
           {/* Category, Stock, SKU */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label htmlFor="category" className='block text-lg font-medium mb-2'>Category:</label>
+              <label htmlFor="category" className='block text-sm font-medium text-gray-700 mb-1'>Category<span className='text-red-700'>*</span></label>
               <select
                 name="category"
                 id="category"
@@ -381,7 +383,7 @@ const EditProduct = () => {
               {validationErrors.category && <p className="text-red-500 text-sm mt-1">{validationErrors.category}</p>}
             </div>
             <div>
-              <label htmlFor="stockQuantity" className='block text-lg font-medium mb-2'>Stock Quantity:</label>
+              <label htmlFor="stockQuantity" className='block text-sm font-medium text-gray-700 mb-1'>Stock Quantity<span className='text-red-700'>*</span></label>
               <input
                 type="number" // Changed to number type
                 id="stockQuantity"
@@ -394,13 +396,14 @@ const EditProduct = () => {
               {validationErrors.stockQuantity && <p className="text-red-500 text-sm mt-1">{validationErrors.stockQuantity}</p>}
             </div>
             <div>
-              <label htmlFor="sku" className='block text-lg font-medium mb-2'>SKU:</label>
+              <label htmlFor="sku" className='block text-sm font-medium text-gray-700 mb-1'>SKU<span className='text-red-700'>* <span className='text-orange-500'>(This will be generated automatically)</span></span></label>
               <input
                 type="text"
                 id="sku"
                 value={formData.sku}
                 onChange={handleChange}
                 name="sku"
+                readOnly
                 className="block w-full p-4 text-lg border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-gray-500"
               />
             </div>
@@ -409,7 +412,7 @@ const EditProduct = () => {
           {/* Colors, Sizes, Tags */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label htmlFor="colors" className='block text-lg font-medium mb-2'>Colors (comma-separated):</label>
+              <label htmlFor="colors" className='block text-sm font-medium text-gray-700 mb-1'>Colors <span className='text-orange-500'>(Optional - Separate each with a comma)</span></label>
               <input
                 type="text"
                 id="colors"
@@ -421,7 +424,7 @@ const EditProduct = () => {
               />
             </div>
             <div>
-              <label htmlFor="sizes" className='block text-lg font-medium mb-2'>Sizes (comma-separated):</label>
+                <label htmlFor="colors" className='block text-sm font-medium text-gray-700 mb-1'>Sizes <span className='text-orange-500'>(Optional - Separate each with a comma)</span></label>
               <input
                 type="text"
                 id="sizes"
@@ -433,7 +436,7 @@ const EditProduct = () => {
               />
             </div>
             <div>
-              <label htmlFor="tags" className='block text-lg font-medium mb-2'>Tags (comma-separated):</label>
+              <label htmlFor="tags" className='block text-sm font-medium text-gray-700 mb-1'>Tags <span className='text-orange-500'>(Optional - Separate each with a comma)</span></label>
               <input
                 type="text"
                 id="tags"
@@ -451,7 +454,7 @@ const EditProduct = () => {
             <h3 className="text-xl font-semibold mb-3">Physical Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div>
-                <label htmlFor="weight" className='block text-lg font-medium mb-2'>Weight (kg):</label>
+                <label htmlFor="weight" className='block text-sm font-medium text-gray-700 mb-1'>Weight (kg) <span className='text-orange-500'>(Optional)</span></label>
                 <input
                   type="number"
                   id="weight"
@@ -464,7 +467,7 @@ const EditProduct = () => {
                 />
               </div>
               <div>
-                <label htmlFor="dimensions.length" className='block text-lg font-medium mb-2'>Length (cm):</label>
+                <label htmlFor="dimensions.length" className='block text-sm font-medium text-gray-700 mb-1'>Length (cm) <span className='text-orange-500'>(Optional)</span></label>
                 <input
                   type="number"
                   id="dimensions.length"
@@ -477,7 +480,7 @@ const EditProduct = () => {
                 />
               </div>
               <div>
-                <label htmlFor="dimensions.width" className='block text-lg font-medium mb-2'>Width (cm):</label>
+                <label htmlFor="dimensions.width" className='block text-sm font-medium text-gray-700 mb-1'>Width (cm) <span className='text-orange-500'>(Optional)</span></label>
                 <input
                   type="number"
                   id="dimensions.width"
@@ -490,7 +493,7 @@ const EditProduct = () => {
                 />
               </div>
               <div>
-                <label htmlFor="dimensions.height" className='block text-lg font-medium mb-2'>Height (cm):</label>
+                <label htmlFor="dimensions.height" className='block text-sm font-medium text-gray-700 mb-1'>Height (cm) <span className='text-orange-500'>(Optional)</span></label>
                 <input
                   type="number"
                   id="dimensions.height"
@@ -537,7 +540,7 @@ const EditProduct = () => {
             {/* Display existing product images */}
             {currentImages.length > 0 && (
               <div className="mt-4">
-                <p className="text-md font-medium text-gray-700">Current product images:</p>
+                <p className="text-md font-medium text-orange-500">Current product images:</p>
                 <div className="flex flex-wrap gap-2 mt-2">
                   {currentImages.map((image, index) => (
                     <div key={image.url} className="relative w-24 h-24 rounded-md overflow-hidden border border-gray-200">

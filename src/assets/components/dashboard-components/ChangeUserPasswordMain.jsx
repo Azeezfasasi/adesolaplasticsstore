@@ -224,7 +224,7 @@ function ChangeUserPasswordMain() {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 max-w-xl mx-auto">
       <div className="flex items-center mb-6">
-        <div className="p-3 rounded-full bg-blue-100 text-blue-600 mr-4">
+        <div className="p-3 rounded-full bg-blue-100 text-orange-500 mr-4">
           <FaShieldAlt size={24} />
         </div>
         <div>
@@ -249,7 +249,7 @@ function ChangeUserPasswordMain() {
           <button
             type="button"
             onClick={toggleMode}
-            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
           >
             <FaUserCog className="mr-2" />
             {isAdminMode ? "Switch to Personal Mode" : "Switch to Admin Mode"}
@@ -327,7 +327,7 @@ function ChangeUserPasswordMain() {
                   <button
                     type="button"
                     onClick={() => setSelectedUser(null)}
-                    className="text-blue-600 hover:text-blue-800"
+                    className="text-orange-500 hover:text-orange-600"
                   >
                     Change
                   </button>
@@ -355,7 +355,7 @@ function ChangeUserPasswordMain() {
                 onChange={handleChange}
                 className={`w-full pl-10 pr-10 py-2 border ${
                   validationErrors.currentPassword ? 'border-red-500' : 'border-gray-300'
-                } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                } rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500`}
                 placeholder="Enter current password"
               />
               <button
@@ -392,7 +392,7 @@ function ChangeUserPasswordMain() {
               onChange={handleChange}
               className={`w-full pl-10 pr-10 py-2 border ${
                 validationErrors.newPassword ? 'border-red-500' : 'border-gray-300'
-              } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+              } rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500`}
               placeholder="Enter new password"
             />
             <button
@@ -449,7 +449,7 @@ function ChangeUserPasswordMain() {
               onChange={handleChange}
               className={`w-full pl-10 pr-10 py-2 border ${
                 validationErrors.confirmPassword ? 'border-red-500' : 'border-gray-300'
-              } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
+              } rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500`}
               placeholder="Confirm new password"
             />
             <button
@@ -507,7 +507,7 @@ function ChangeUserPasswordMain() {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer ${
+            className={`w-full flex justify-center items-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 cursor-pointer ${
               loading ? 'opacity-70 cursor-not-allowed' : ''
             }`}
           >

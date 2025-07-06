@@ -88,8 +88,15 @@ function DashHeader() {
             {profileMenuOpen && (
               <div className="absolute top-10 right-[-150px] mt-2 w-44 bg-white border border-solid border-gray-300 rounded shadow-lg z-50 animate-fade-in">
                 <Link to="/app/dashboard" className="block px-4 py-2 hover:bg-gray-100 text-[#0A1F44]" onClick={() => setProfileMenuOpen(false)}>Dashboard</Link>
+                {(user?.role === 'admin' || user?.role === 'super admin') && (
+                  <Link to="/app/products" className="block px-4 py-2 hover:bg-gray-100 text-[#0A1F44]" onClick={() => setProfileMenuOpen(false)}>All Products</Link>
+                )}
+                {(user?.role === 'admin' || user?.role === 'super admin') && (
+                  <Link to="/app/adminorderlist" className="block px-4 py-2 hover:bg-gray-100 text-[#0A1F44]" onClick={() => setProfileMenuOpen(false)}>Manage Orders</Link>
+                )}
+                {user?.role === 'customer' && (
                 <Link to="/app/userorderdetails" className="block px-4 py-2 hover:bg-gray-100 text-[#0A1F44]" onClick={() => setProfileMenuOpen(false)}>My Orders</Link>
-                <Link to="" className="block px-4 py-2 hover:bg-gray-100 text-[#0A1F44]" onClick={() => setProfileMenuOpen(false)}>My Quotes</Link>
+                )}
                 <Link to="/app/profile" className="block px-4 py-2 hover:bg-gray-100 text-[#0A1F44]" onClick={() => setProfileMenuOpen(false)}>Profile</Link>                
                 <button
                   onClick={() => { setProfileMenuOpen(false); handleLogout(); }}

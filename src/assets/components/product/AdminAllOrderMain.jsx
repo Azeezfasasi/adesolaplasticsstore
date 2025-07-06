@@ -279,12 +279,13 @@ const AdminAllOrderMain = () => {
                       onChange={(e) => updatePaymentStatusMutation.mutate({ orderId: order._id, status: e.target.value })}
                       disabled={updatePaymentStatusMutation.isLoading}
                       className={`px-2 py-1 rounded-md text-sm font-semibold border ${
-                        order.status === 'Paid' ? 'bg-green-100 text-green-800 border-green-300' :
-                        order.status === 'Processing' ? 'bg-blue-100 text-blue-800 border-blue-300' :
-                        order.status === 'Not Paid' ? 'bg-red-100 text-red-800 border-red-300' :
+                        order.PaymentStatus === 'Paid' ? 'bg-green-400 text-green-800 border-green-300' :
+                        order.PaymentStatus === 'Processing' ? 'bg-blue-100 text-blue-800 border-blue-300' :
+                        order.PaymentStatus === 'Not Paid' ? 'bg-red-100 text-red-800 border-red-300' :
                         'bg-gray-100 text-gray-800 border-gray-300'
                       } focus:outline-none focus:ring-2 focus:ring-blue-500`}
                       >
+                        <option value="">Update Payment Status</option>
                         <option value="Paid">Paid</option>
                         <option value="Processing">Processing</option>
                         <option value="Not Paid">Not Paid</option>

@@ -1,48 +1,12 @@
-
 function MeetExpert() {
-    const experts = [
+  const experts = [
     {
       id: 1,
-      name: 'Victor Obialor',
-      title: 'Manager, IT Operations',
-      bio: 'Expert in IT operations',
-      linkedin: 'https://www.linkedin.com/in/victor-obialor',
-      image: 'https://placehold.co/300x350/d0e2ff/ffffff?text=Expert+1',
-    },
-    {
-      id: 2,
-      name: 'Abisinuola Layode',
-      title: 'Officer, IT Operations',
-      bio: 'Expert in IT support and operations',
-      image: 'https://placehold.co/300x350/d0e2ff/ffffff?text=Expert+2',
-    },
-    {
-      id: 3,
-      name: 'Taofik Ojuolape',
-      title: 'Officer, IT Operations',
-      bio: 'Expert in Data Analytics and IT support',
-      image: 'https://placehold.co/300x350/e0efff/ffffff?text=Expert+3',
-    },
-    {
-      id: 4,
-      name: 'Azeez Fasasi',
-      title: 'Associate, IT Operations',
-      bio: 'Expert in Frontend Development and IT support',
-      image: 'https://placehold.co/300x350/e0efff/ffffff?text=Expert+4',
-    },
-    {
-      id: 5,
-      name: 'Stewart Peter',
-      title: 'Associate, IT Operations',
-      bio: 'Expert in AWS and IT support',
-      image: 'https://placehold.co/300x350/e0efff/ffffff?text=Expert+5',
-    },
-    {
-      id: 6,
-      name: 'Oluwasegun Ayandokun',
-      title: 'Associate, IT Operations',
-      bio: 'Expert in Hardware Repair and IT Support',
-      image: 'https://placehold.co/300x350/e0efff/ffffff?text=Expert+6',
+      name: 'Adesola Adebayo',
+      title: 'Founder & CEO',
+      bio: 'Adesola Adebayo is the visionary founder of Adesola Plastics Store. With over 20 years of experience in the plastics industry, he is dedicated to delivering quality, innovation, and customer satisfaction. His leadership has transformed the company into a trusted name for plastic products across Nigeria.',
+      linkedin: 'https://www.linkedin.com/in/adesola-adebayo',
+      image: 'https://placehold.co/300x350/ffedd5/222222?text=Adesola+Adebayo',
     },
   ];
 
@@ -55,22 +19,22 @@ function MeetExpert() {
         <div className="flex flex-col justify-center gap-8 mb-10">
           <div className="text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-gray-800 leading-tight">
-              Meet our Experts
+              Meet Our Founder
             </h2>
-            <p>Skilled. Reliable. Tech-Savvy.</p>
+            <p className="text-orange-600 font-semibold">Trusted. Experienced. Committed to Quality.</p>
           </div>
           <div className="text-center">
             <p className="text-gray-600 mb-4">
-              At IT Service Pro, we’ve built a team of dedicated IT professionals who are passionate about delivering top-tier technology services — from laptop repairs and office setups to web and mobile development.
+              Adesola Plastics Store is led by a passionate team with decades of experience in the plastics industry. Our founder, Adesola Adebayo, has built a business rooted in integrity, innovation, and a deep commitment to customer satisfaction.
             </p>
             <p className="text-gray-600">
-              Our team includes certified technicians, developers, and support specialists, all committed to providing fast, friendly, and dependable service. Whether you are troubleshooting a device or building something new, our experts are here to help you every step of the way.
+              From product design to customer care, our leadership team ensures every product meets the highest standards of quality and sustainability. We believe in empowering our staff, supporting our community, and delivering value to every customer.
             </p>
           </div>
         </div>
 
         {/* Bottom Section: Expert Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 lg:flex-row justify-center items-end gap-6">
+        <div className="flex flex-row justify-center">
           {experts.map((expert) => (
             <div
               key={expert.id}
@@ -82,12 +46,41 @@ function MeetExpert() {
                 className="w-full h-full object-cover"
               />
               {/* Name and Title Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-blue-500 bg-opacity-90 text-white p-4">
+              <div className="absolute bottom-0 left-0 right-0 bg-orange-600 bg-opacity-90 text-white p-4">
                 <h3 className="text-[16px] md:text-[20px] font-semibold">{expert.name}</h3>
-                <p className="text-[13px] md:text-[14px]">{expert.bio}</p>
+                <p className="text-[13px] md:text-[14px] font-medium">{expert.title}</p>
+                <p className="text-[12px] md:text-[13px] mt-1">{expert.bio}</p>
+                {expert.linkedin && (
+                  <a href={expert.linkedin} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-blue-200 underline text-xs">LinkedIn</a>
+                )}
+                <div>
+                  
+                </div>
               </div>
             </div>
           ))}
+        </div>
+        {/* Extra: Company Values Section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Core Values</h3>
+          <div className="flex flex-wrap justify-center gap-6">
+            <div className="bg-orange-50 rounded-xl p-6 w-64 shadow">
+              <h4 className="font-semibold text-orange-700 mb-2">Quality</h4>
+              <p className="text-gray-600 text-sm">We never compromise on the quality of our products and services.</p>
+            </div>
+            <div className="bg-orange-50 rounded-xl p-6 w-64 shadow">
+              <h4 className="font-semibold text-orange-700 mb-2">Innovation</h4>
+              <p className="text-gray-600 text-sm">We embrace new ideas and technologies to serve you better.</p>
+            </div>
+            <div className="bg-orange-50 rounded-xl p-6 w-64 shadow">
+              <h4 className="font-semibold text-orange-700 mb-2">Sustainability</h4>
+              <p className="text-gray-600 text-sm">We are committed to eco-friendly practices and responsible manufacturing.</p>
+            </div>
+            <div className="bg-orange-50 rounded-xl p-6 w-64 shadow">
+              <h4 className="font-semibold text-orange-700 mb-2">Customer Focus</h4>
+              <p className="text-gray-600 text-sm">Your satisfaction is our top priority, every single day.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -121,7 +121,7 @@ export default function ViewOrderDetailsMain({ token: propToken }) {
         <div>
           <h3 className="text-xl font-bold mb-2">Payment</h3>
           <p>Method: <span className="font-semibold">{order.paymentMethod}</span></p>
-          <p>Status: {order.isPaid ? <span className="text-green-600 font-bold flex items-center"><FaCheckCircle className="mr-1" /> Paid</span> : <span className="text-red-600 font-bold flex items-center"><FaTimesCircle className="mr-1" /> Not Paid</span>}</p>
+            <p className='flex flex-row gap-2'>Status: {order.isPaid ? <span className="text-green-600 font-bold flex items-center"><FaCheckCircle className="mr-1" /> Paid</span> : <span className="text-red-600 font-bold flex items-center"><FaTimesCircle className="mr-1" /> Not Paid</span>}</p>
           {order.paidAt && <p>Paid At: {new Date(order.paidAt).toLocaleString()}</p>}
         </div>
         <div>

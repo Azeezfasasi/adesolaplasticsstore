@@ -6,6 +6,7 @@ import DashStats from '../assets/components/dashboard-components/DashStats'
 import DashChart from '../assets/components/dashboard-components/DashChart'
 import ProductChart from '../assets/components/dashboard-components/ProductChart'
 import { useUser } from '../assets/context-api/user-context/UseUser'
+import OrderStatusChart from '../assets/components/dashboard-components/OrderStatusChart'
 
 function Dashboard() {
   const { isSuperAdmin, isAdmin } = useUser()
@@ -21,6 +22,11 @@ function Dashboard() {
       </div>
       <div className='w-full lg:w-[80%]'>
         <DashStats />
+        <br />
+        {(isSuperAdmin || isAdmin) && (
+        <OrderStatusChart />
+        )}
+        <br />
         {(isSuperAdmin || isAdmin) && (
         <ProductChart />
         )}

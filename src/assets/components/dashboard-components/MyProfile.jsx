@@ -16,12 +16,12 @@ function MyProfile() {
   const [isEditing, setIsEditing] = useState(false);
   const [localSuccess, setLocalSuccess] = useState('');
   const [localError, setLocalError] = useState('');
-  const [passwordData, setPasswordData] = useState({
-    currentPassword: '',
-    newPassword: '',
-    confirmPassword: ''
-  });
-  const [showPasswordForm, setShowPasswordForm] = useState(false);
+  // const [passwordData, setPasswordData] = useState({
+  //   currentPassword: '',
+  //   newPassword: '',
+  //   confirmPassword: ''
+  // });
+  // const [showPasswordForm, setShowPasswordForm] = useState(false);
 
   // Initialize form with user data when it loads
   useEffect(() => {
@@ -44,10 +44,10 @@ function MyProfile() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handlePasswordChange = (e) => {
-    const { name, value } = e.target;
-    setPasswordData({ ...passwordData, [name]: value });
-  };
+  // const handlePasswordChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setPasswordData({ ...passwordData, [name]: value });
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,34 +64,34 @@ function MyProfile() {
     }
   };
 
-  const handlePasswordSubmit = async (e) => {
-    e.preventDefault();
-    setLocalError('');
-    setLocalSuccess('');
+  // const handlePasswordSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLocalError('');
+  //   setLocalSuccess('');
     
-    // Validate passwords match
-    if (passwordData.newPassword !== passwordData.confirmPassword) {
-      setLocalError('New passwords do not match');
-      return;
-    }
+  //   // Validate passwords match
+  //   if (passwordData.newPassword !== passwordData.confirmPassword) {
+  //     setLocalError('New passwords do not match');
+  //     return;
+  //   }
     
-    try {
-      await updateProfile({ 
-        currentPassword: passwordData.currentPassword,
-        newPassword: passwordData.newPassword 
-      });
-      setShowPasswordForm(false);
-      setPasswordData({
-        currentPassword: '',
-        newPassword: '',
-        confirmPassword: ''
-      });
-      setLocalSuccess('Password updated successfully!');
-    } catch (err) {
-      console.log(err);
-      setLocalError('Failed to update password. Please check your current password.');
-    }
-  };
+  //   try {
+  //     await updateProfile({ 
+  //       currentPassword: passwordData.currentPassword,
+  //       newPassword: passwordData.newPassword 
+  //     });
+  //     setShowPasswordForm(false);
+  //     setPasswordData({
+  //       currentPassword: '',
+  //       newPassword: '',
+  //       confirmPassword: ''
+  //     });
+  //     setLocalSuccess('Password updated successfully!');
+  //   } catch (err) {
+  //     console.log(err);
+  //     setLocalError('Failed to update password. Please check your current password.');
+  //   }
+  // };
 
   if (loading) {
     return (
@@ -111,7 +111,7 @@ function MyProfile() {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b pb-2">My Profile</h2>
+      <h2 className="text-2xl font-bold mb-6 text-orange-500 border-b pb-2">My Profile</h2>
       
       {(error || localError) && (
         <div className="bg-red-50 text-red-600 p-3 rounded-md mb-4">
@@ -311,7 +311,7 @@ function MyProfile() {
       </div>
 
       {/* Password Change Section */}
-      <div className="border-t pt-6">
+      {/*<div className="border-t pt-6">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-xl font-semibold text-gray-700">Security</h3>
           <button
@@ -327,7 +327,7 @@ function MyProfile() {
           </button>
         </div>
 
-        {showPasswordForm && (
+         {showPasswordForm && (
           <form onSubmit={handlePasswordSubmit} className="space-y-4">
             <div>
               <label htmlFor="currentPassword" className="block text-sm font-medium text-gray-700 mb-1">
@@ -387,9 +387,9 @@ function MyProfile() {
               </button>
             </div>
           </form>
-        )}
-      </div>
-    </div>
+        )} 
+      </div> */}
+    </div> 
   );
 }
 
