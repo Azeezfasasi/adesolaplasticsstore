@@ -102,7 +102,8 @@ const TrackOrder = () => {
 
         {isError && submittedOrderNumber && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-center">
-            <FaExclamationCircle className="inline-block text-xl mr-2" />
+            {/* <FaExclamationCircle className="inline-block text-xl mr-2" /> */}
+            <i className="fa-solid fa-circle-exclamation inline-block text-xl mr-2"></i>
             <span className="block sm:inline">{error?.message || 'An unknown error occurred while fetching status.'}</span>
             <p className="mt-2 text-sm">Please double-check the order number or try again later.</p>
           </div>
