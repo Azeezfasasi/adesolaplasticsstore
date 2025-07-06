@@ -14,16 +14,16 @@ function Footer() {
             Adesola Plastics Store is a trusted eCommerce destination for high-quality plastic materials and household essentials. We offer a wide range of products including chairs, tables, home equipment, and durable plastic goods to meet your everyday needs.
           </p>
           <div className="flex items-center mb-2">
-            <Phone className="w-4 h-4 mr-2 text-[#00B9F1]" />
+            <Phone className="w-5 h-5 mr-2 text-[#00B9F1]" />
             <a href="tel:08029580850" className="text-white hover:text-[#00B9F1] transition">(+234) 08029580850</a>
           </div>
           <div className="flex items-center mb-2">
-            <Mail className="w-4 h-4 mr-2 text-[#00B9F1]" />
+            <Mail className="w-6 h-6 mr-2 text-[#00B9F1]" />
             <a href="mailto:info@adesolaplasticstore.com" className="text-white hover:text-[#00B9F1] transition">info@adesolaplasticstore.com</a>
           </div>
           <div className="flex items-center">
-            <MapPin className="w-4 h-4 mr-2 text-[#00B9F1]" />
-            <span className="text-white">22 Alhaji Olaye Street, Abule-Odu, Egbeda, Idimu Road Lagos, Nigeria</span>
+            <MapPin className="w-5 h-5 mr-2 text-[#00B9F1]" />
+            <span className="text-white">2 Alhaji Oloye Street, Abule-Odu, Egbeda, Idimu Road, Lagos</span>
           </div>
         </div>
 

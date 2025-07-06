@@ -10,7 +10,7 @@ function ContactInfo() {
           <h2 className="text-2xl font-bold text-[#0A1F44] mb-4">Contact Information</h2>
           <div className="mb-4 flex items-start">
             <MapPin className="w-5 h-5 text-orange-500 mt-1 mr-3" />
-            <span className="text-gray-700">22 Alhaji Olaye Street, Abule-Odu, Egbeda, Idimu Road Lagos, Nigeria</span>
+            <span className="text-gray-700">2 Alhaji Oloye Street, Abule-Odu, Egbeda, Idimu Road, Lagos</span>
           </div>
           <div className="mb-4 flex items-start">
             <Phone className="w-5 h-5 text-orange-500 mt-1 mr-3" />
@@ -30,7 +30,7 @@ function ContactInfo() {
         <div className="flex-1 min-h-[250px]">
           <iframe
             title="Adesola Plastics Store Location"
-            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7926.92530049937!2d3.279149529639292!3d6.5892723895880705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s22%20Alhaji%20Olaye%20Street%2C%20Abule-Odu%2C%20Egbeda%2C%20Idimu%20Road!5e0!3m2!1sen!2sng!4v1751709349467!5m2!1sen!2sng"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.465478637447!2d3.281570173117978!3d6.588918422403552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b9038a7fd51d9%3A0xead27163d091ff5c!2s2%20Alhaji%20Oloye%20Street%2C%20Abule%20Odu%2C%20Lagos%20102213%2C%20Lagos!5e0!3m2!1sen!2sng!4v1751819869375!5m2!1sen!2sng"
             width="100%"
             height="100%"
             className="rounded-lg shadow min-h-[250px] w-full h-64 md:h-full"
