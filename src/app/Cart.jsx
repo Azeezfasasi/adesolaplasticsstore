@@ -8,7 +8,7 @@ function Cart() {
   return (
     <>
     <Helmet>
-        <title>Cart - IT Service Pro</title>
+        <title>Cart - Adesola Plastics Store</title>
     </Helmet>
     <TopHeader />
     <MainHeader />

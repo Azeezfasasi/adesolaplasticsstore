@@ -9,7 +9,7 @@ function ViewUserOrderDetails() {
   return (
     <>
     <Helmet>
-        <title>View Orders - IT Service Pro</title>
+        <title>View Orders - Adesola Plastics Store</title>
     </Helmet>
     <DashHeader />
     <div className='flex flex-row justify-start gap-4'>

@@ -1,4 +1,3 @@
-// frontend/src/components/orders/TrackOrderStatus.jsx
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useCart } from '../assets/context-api/cart/UseCart';

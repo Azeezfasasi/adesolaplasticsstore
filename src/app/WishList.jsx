@@ -9,7 +9,7 @@ function Wishlist() {
   return (
     <>
     <Helmet>
-        <title>Wishlist - IT Service Pro</title>
+        <title>Wishlist - Adesola Plastics Store</title>
     </Helmet>
     <TopHeader />
     <MainHeader />

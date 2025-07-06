@@ -7,7 +7,7 @@ function EditProduct() {
   return (
     <>
     <Helmet>
-        <title>Edit Product - IT Service Pro</title>
+        <title>Edit Product - Adesola Plastics Store</title>
     </Helmet>
     <DashHeader />
     <div className='flex flex-row justify-start gap-4'>

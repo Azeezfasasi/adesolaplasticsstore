@@ -10,7 +10,7 @@ function ProductDetails() {
   return (
     <>
     <Helmet>
-        <title>Product Details - IT Service Pro</title>
+        <title>Product Details - Adesola Plastics Store</title>
     </Helmet>
     <TopHeader />
     <MainHeader />

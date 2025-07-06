@@ -13,7 +13,7 @@ function Dashboard() {
   return (
     <>
     <Helmet>
-        <title>Dashboard - IT Service Pro</title>
+        <title>Dashboard - Adesola Plastics Store</title>
     </Helmet>
     <DashHeader />
     <div className='flex flex-row justify-start gap-4'>

@@ -10,7 +10,7 @@ function Shop() {
   return (
     <>
     <Helmet>
-        <title>Shop - IT Service Pro</title>
+        <title>Shop - Adesola Plastics Store</title>
     </Helmet>
     <TopHeader />
     <MainHeader />

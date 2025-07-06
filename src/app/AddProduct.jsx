@@ -8,7 +8,7 @@ function AddProduct() {
   return (
     <>
     <Helmet>
-        <title>Add Products - IT Service Pro</title>
+        <title>Add Products - Adesola Plastics Store</title>
     </Helmet>
     <DashHeader />
     <div className='flex flex-row justify-start gap-4'>

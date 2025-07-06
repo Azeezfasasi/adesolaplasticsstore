@@ -7,7 +7,7 @@ function Quote() {
   return (
     <>
     <Helmet>
-        <title>Quote - IT Service Pro</title>
+        <title>Quote - Adesola Plastics Store</title>
     </Helmet>
     <DashHeader />
     <div className='flex flex-row justify-start gap-4'>

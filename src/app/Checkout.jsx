@@ -9,7 +9,7 @@ function Checkout() {
   return (
     <>
     <Helmet>
-        <title>Checkout - IT Service Pro</title>
+        <title>Checkout - Adesola Plastics Store</title>
     </Helmet>
     <TopHeader />
     <MainHeader />

@@ -10,7 +10,7 @@ function AdminOrderList() {
   return (
     <>
     <Helmet>
-        <title>All Orders - IT Service Pro</title>
+        <title>All Orders - Adesola Plastics Store</title>
     </Helmet>
     <DashHeader />
     <div className='flex flex-row justify-start gap-4'>

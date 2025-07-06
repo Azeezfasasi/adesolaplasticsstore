@@ -8,7 +8,7 @@ function AddProductCategory() {
   return (
     <>
     <Helmet>
-        <title>Add Product Category - IT Service Pro</title>
+        <title>Add Product Category - Adesola Plastics Store</title>
     </Helmet>
     <DashHeader />
     <div className='flex flex-row justify-start gap-4'>
