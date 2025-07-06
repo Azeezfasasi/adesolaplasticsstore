@@ -178,7 +178,7 @@ const handleSubmit = async (e) => {
       <div className="flex items-center mb-6">
         <button 
           onClick={() => navigate(returnPath)}
-          className="text-blue-600 hover:text-blue-800 mr-4 cursor-pointer"
+          className="text-orange-500 hover:text-orange-600 mr-4 cursor-pointer"
         >
           <FaArrowLeft size={20} />
         </button>
@@ -225,7 +225,7 @@ const handleSubmit = async (e) => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full border ${validationErrors.name ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+              className={`w-full border ${validationErrors.name ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500`}
             />
             {validationErrors.name && (
               <p className="text-red-500 text-xs mt-1">{validationErrors.name}</p>
@@ -241,7 +241,7 @@ const handleSubmit = async (e) => {
               name="parent"
               value={formData.parent}
               onChange={handleChange}
-              className={`w-full border ${validationErrors.parent ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+              className={`w-full border ${validationErrors.parent ? 'border-red-500' : 'border-gray-300'} rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500`}
             >
               <option value="">None (Top Level)</option>
               {parentOptions.map(category => (
@@ -266,7 +266,7 @@ const handleSubmit = async (e) => {
               value={formData.sortOrder}
               onChange={handleChange}
               min="0"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
             />
             <p className="text-gray-500 text-xs mt-1">Lower numbers appear first</p>
           </div>
@@ -278,7 +278,7 @@ const handleSubmit = async (e) => {
               name="isActive"
               checked={formData.isActive}
               onChange={handleChange}
-              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              className="h-4 w-4 text-blue-600 focus:ring-orange-500 border-gray-300 rounded"
             />
             <label htmlFor="isActive" className="ml-2 block text-sm text-gray-700">
               Active
@@ -296,7 +296,7 @@ const handleSubmit = async (e) => {
             value={formData.description}
             onChange={handleChange}
             rows="4"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
           ></textarea>
         </div>
         
@@ -338,7 +338,7 @@ const handleSubmit = async (e) => {
               />
               <label
                 htmlFor="image"
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 cursor-pointer"
+                className="inline-flex items-center px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 cursor-pointer"
               >
                 <FaUpload className="mr-2" />
                 Select Image
@@ -363,7 +363,7 @@ const handleSubmit = async (e) => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="px-4 py-2 bg-blue-600 border border-transparent rounded-md text-sm font-medium text-white hover:bg-blue-700 flex items-center disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="px-4 py-2 bg-orange-500 border border-transparent rounded-md text-sm font-medium text-white hover:bg-orange-700 flex items-center disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {isSubmitting ? (
               <>

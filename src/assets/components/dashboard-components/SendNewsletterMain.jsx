@@ -52,7 +52,7 @@ function SendNewsletterMain() {
 
   return (
     <div style={{ maxWidth: 600, margin: '40px auto', background: '#fff', borderRadius: 8, boxShadow: '0 2px 12px #e0e0e0', padding: 32 }}>
-      <h2 style={{ color: '#00B9F1', marginBottom: 24 }}>Send Newsletter</h2>
+      <h2 style={{ marginBottom: 24 }} className='text-orange-500 font-bold'>Send Newsletter</h2>
       <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: 18 }}>
           <label style={{ fontWeight: 500 }}>Subject<span style={{ color: 'red' }}>*</span></label>
@@ -83,7 +83,7 @@ function SendNewsletterMain() {
           />
         </div>
         <div style={{ marginBottom: 18 }}>
-          <label style={{ fontWeight: 500 }}>Recipients (optional)</label>
+          <label style={{ fontWeight: 500 }}>Recipients (optional) <span className='text-orange-500 text-[13px]'>Leave blank for all subscribers or Separated emails with comma</span></label>
           <input
             type="text"
             value={recipients}
@@ -96,7 +96,8 @@ function SendNewsletterMain() {
         {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
         <button
           type="submit"
-          style={{ background: '#00B9F1', color: '#fff', padding: '12px 32px', border: 'none', borderRadius: 4, fontWeight: 600, fontSize: 16, cursor: sendNewsletterMutation.isLoading ? 'not-allowed' : 'pointer' }}
+          style={{color: '#fff', padding: '12px 32px', border: 'none', borderRadius: 4, fontWeight: 600, fontSize: 16, cursor: sendNewsletterMutation.isLoading ? 'not-allowed' : 'pointer' }}
+          className='bg-orange-500'
           disabled={sendNewsletterMutation.isLoading}
         >
           {sendNewsletterMutation.isLoading ? 'Sending...' : 'Send Newsletter'}

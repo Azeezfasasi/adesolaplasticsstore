@@ -250,9 +250,9 @@ const EditProduct = () => {
       <Link to="/app/products" className='flex flex-row justify-start mb-6'>
           <img src={back} alt="Back" className='w-7 h-7 mr-2' /><p className='font-semibold'>Back to Products</p>
       </Link>
-      <h2 className='text-2xl font-bold mb-4'>Edit Product: {product?.name || 'Loading...'}</h2>
+      <h2 className='text-2xl font-bold mb-4'>Edit Product: <span className='text-orange-500'>{product?.name || 'Loading...'}</span></h2>
 
-      {loading && <p className="text-blue-600 mb-4">Loading product data...</p>}
+      {loading && <p className="text-orange-500 mb-4">Loading product data...</p>}
       {error && <p className="text-red-600 mb-4">{error}</p>}
       {success && <p className="text-green-600 mb-4">{success}</p>}
       {updateProductMutation.isError && (
@@ -607,7 +607,7 @@ const EditProduct = () => {
           <div className='flex flex-row justify-start items-center gap-5 mt-6'>
             <button
               type="submit"
-              className="flex justify-center items-center gap-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-blue-500 w-[200px] cursor-pointer"
+              className="flex justify-center items-center gap-3 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-blue-500 w-[200px] cursor-pointer"
               disabled={loading}
             >
               {loading ? 'Saving...' : <><FaSave /> Save Changes</>}

@@ -85,12 +85,12 @@ function NewsletterSubscriberMain() {
     });
   };
 
-  if (isLoading) return <div style={{ textAlign: 'center', marginTop: 40 }}>Loading subscribers...</div>;
+  if (isLoading) return <div style={{ textAlign: 'center', marginTop: 40 }} className='text-orange-500'>Loading subscribers...</div>;
   if (isError) return <div style={{ color: 'red', textAlign: 'center', marginTop: 40 }}>Failed to load subscribers.</div>;
 
   return (
     <div style={{ maxWidth: 900, margin: '40px auto', background: '#fff', borderRadius: 8, boxShadow: '0 2px 12px #e0e0e0', padding: 32 }}>
-      <h2 style={{ color: '#00B9F1', marginBottom: 24 }}>Newsletter Subscribers</h2>
+      <h2 style={{ marginBottom: 24 }} className='text-orange-500 font-bold'>Newsletter Subscribers</h2>
       {success && <div style={{ color: 'green', marginBottom: 12 }}>{success}</div>}
       {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
       <div style={{ overflowX: 'auto' }}>

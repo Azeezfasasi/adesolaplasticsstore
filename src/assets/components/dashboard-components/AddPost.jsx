@@ -106,7 +106,7 @@ function AddPost() {
         {success && <div className="text-green-600 text-center">{success}</div>}
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700 transition cursor-pointer"
+          className="w-full bg-orange-500 text-white py-2 rounded font-semibold hover:bg-orange-600 transition cursor-pointer"
           disabled={loading}
         >
           {loading ? 'Posting...' : 'Add Blog Post'}

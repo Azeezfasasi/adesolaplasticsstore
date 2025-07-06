@@ -271,7 +271,7 @@ const ProductForm = () => {
       <div className="flex items-center mb-6">
         <button 
           onClick={() => navigate('/app/products')}
-          className="text-blue-600 hover:text-blue-800 mr-4 cursor-pointer"
+          className="text-orange-500 hover:text-orange-600 mr-4 cursor-pointer"
         >
           <FaArrowLeft size={20} />
         </button>
@@ -781,7 +781,7 @@ const ProductForm = () => {
           <button
             type="submit"
             // disabled={loading}
-            className="px-4 py-2 bg-blue-600 border border-transparent rounded-md text-sm font-medium text-white hover:bg-blue-700 flex items-center disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="px-4 py-2 bg-orange-500 border border-transparent rounded-md text-sm font-medium text-white hover:bg-orange-600 flex items-center disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {loading ? (
               <>

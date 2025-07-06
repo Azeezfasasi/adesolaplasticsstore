@@ -114,7 +114,7 @@ const AdminAllOrderMain = () => {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[60vh] bg-gray-50 p-6 rounded-lg shadow-md">
-        <FaSpinner className="animate-spin text-blue-500 text-4xl mr-3" />
+        <FaSpinner className="animate-spin text-orange-500 text-4xl mr-3" />
         <p className="text-xl text-gray-700">Loading all orders...</p>
       </div>
     );
@@ -131,7 +131,7 @@ const AdminAllOrderMain = () => {
         </p>
         <button
           onClick={() => refetch()}
-          className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300"
+          className="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full transition duration-300"
         >
           Retry
         </button>
@@ -149,7 +149,7 @@ const AdminAllOrderMain = () => {
         </p>
         <Link
           to="/app/dashboard" // Or redirect to home/login
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+          className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
         >
           Go to Dashboard
         </Link>
@@ -169,7 +169,7 @@ const AdminAllOrderMain = () => {
             placeholder="Search by Order#, User Name, Email..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
           <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
         </div>
@@ -177,7 +177,7 @@ const AdminAllOrderMain = () => {
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
           >
             <option value="">All Statuses</option>
             <option value="Pending">Pending</option>
@@ -245,7 +245,7 @@ const AdminAllOrderMain = () => {
                     </select>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <Link to={`/app/vieworderdetails/${order._id}`} className="text-blue-600 hover:text-blue-900 mr-3">
+                    <Link to={`/app/vieworderdetails/${order._id}`} className="text-orange-500 hover:text-orange-600 mr-3">
                       <FaEye className="inline-block" /> View
                     </Link>
                     {/* Add delete button (use with caution in real apps, confirm delete) */}

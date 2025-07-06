@@ -179,7 +179,7 @@ function AllUserMain() {
     <div className="bg-white rounded-lg shadow-md p-6">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-gray-800">User Management</h2>
-        <div className="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">
+        <div className="text-sm bg-blue-100 text-orange-600 px-3 py-1 rounded-full font-medium">
           Total Users: {totalUsers}
         </div>
       </div>
@@ -213,7 +213,7 @@ function AllUserMain() {
           
           <button
             onClick={fetchUsers}
-            className="bg-blue-600 text-white px-3 py-1 rounded-md text-sm hover:bg-blue-700 cursor-pointer"
+            className="bg-orange-500 text-white px-3 py-1 rounded-md text-sm hover:bg-orange-600 cursor-pointer"
           >
             Refresh
           </button>

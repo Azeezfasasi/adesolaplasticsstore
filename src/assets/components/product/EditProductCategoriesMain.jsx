@@ -209,7 +209,7 @@ function EditProductCategoriesMain() {
         <div className="flex gap-4 mt-6">
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer"
+            className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 cursor-pointer"
             disabled={mutation.isLoading}
           >
             {mutation.isLoading ? 'Saving...' : 'Save Changes'}

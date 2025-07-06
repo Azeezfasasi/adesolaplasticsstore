@@ -105,7 +105,7 @@ const CategoryList = () => {
             
             <Link 
               to={`/app/editproductcategories/${category._id}`}
-              className="text-indigo-600 hover:text-indigo-900 p-2"
+              className="text-orange-500 hover:text-orange-600 p-2"
             >
               <FaEdit size={16} />
             </Link>
@@ -134,7 +134,7 @@ const CategoryList = () => {
         <h2 className="text-2xl font-bold text-gray-800">Categories</h2>
         <Link 
           to="/app/addproductcategory" 
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 flex items-center"
+          className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 flex items-center"
         >
           <FaPlus className="mr-2" />
           Add New Category
@@ -152,7 +152,7 @@ const CategoryList = () => {
             placeholder="Search categories..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
           />
         </div>
       </div>

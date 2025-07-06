@@ -96,7 +96,7 @@ function MyProfile() {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-700"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600"></div>
       </div>
     );
   }
@@ -135,7 +135,7 @@ function MyProfile() {
             className={`px-4 py-2 rounded-md text-sm font-medium ${
               isEditing 
                 ? 'bg-gray-200 text-gray-700 hover:bg-gray-300' 
-                : 'bg-blue-600 text-white hover:bg-blue-700'
+                : 'bg-orange-500 text-white hover:bg-orange-600'
             }`}
           >
             {isEditing ? 'Cancel' : 'Edit Profile'}
@@ -194,7 +194,7 @@ function MyProfile() {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
               <div>
@@ -207,7 +207,7 @@ function MyProfile() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   disabled
                 />
                 <p className="text-xs text-gray-500 mt-1">Email cannot be changed</p>
@@ -222,7 +222,7 @@ function MyProfile() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
               <div>
@@ -235,7 +235,7 @@ function MyProfile() {
                   name="address"
                   value={formData.address}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
               <div>
@@ -248,7 +248,7 @@ function MyProfile() {
                   name="city"
                   value={formData.city}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
               <div>
@@ -261,7 +261,7 @@ function MyProfile() {
                   name="state"
                   value={formData.state}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
               <div>
@@ -274,7 +274,7 @@ function MyProfile() {
                   name="zipCode"
                   value={formData.zipCode}
                   onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
             </div>
@@ -288,7 +288,7 @@ function MyProfile() {
                 rows="4"
                 value={formData.bio}
                 onChange={handleInputChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               ></textarea>
             </div>
             <div className="flex justify-end space-x-3">
@@ -301,7 +301,7 @@ function MyProfile() {
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 bg-blue-600 rounded-md text-sm font-medium text-white hover:bg-blue-700"
+                className="px-4 py-2 bg-orange-500 rounded-md text-sm font-medium text-white hover:bg-orange-600"
               >
                 Save Changes
               </button>
@@ -320,7 +320,7 @@ function MyProfile() {
             className={`px-4 py-2 rounded-md text-sm font-medium ${
               showPasswordForm 
                 ? 'bg-gray-200 text-gray-700 hover:bg-gray-300' 
-                : 'bg-blue-600 text-white hover:bg-blue-700'
+                : 'bg-orange-500 text-white hover:bg-orange-600'
             }`}
           >
             {showPasswordForm ? 'Cancel' : 'Change Password'}
@@ -340,7 +340,7 @@ function MyProfile() {
                 value={passwordData.currentPassword}
                 onChange={handlePasswordChange}
                 required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
             <div>
@@ -354,7 +354,7 @@ function MyProfile() {
                 value={passwordData.newPassword}
                 onChange={handlePasswordChange}
                 required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
             <div>
@@ -368,7 +368,7 @@ function MyProfile() {
                 value={passwordData.confirmPassword}
                 onChange={handlePasswordChange}
                 required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
             <div className="flex justify-end space-x-3">
@@ -381,7 +381,7 @@ function MyProfile() {
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 bg-blue-600 rounded-md text-sm font-medium text-white hover:bg-blue-700"
+                className="px-4 py-2 bg-orange-500 rounded-md text-sm font-medium text-white hover:bg-orange-600"
               >
                 Update Password
               </button>

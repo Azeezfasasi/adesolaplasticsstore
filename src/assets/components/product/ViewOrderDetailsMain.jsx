@@ -35,7 +35,7 @@ export default function ViewOrderDetailsMain({ token: propToken }) {
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh]">
-        <FaSpinner className="animate-spin text-blue-500 text-4xl mb-4" />
+        <FaSpinner className="animate-spin text-orange-500 text-4xl mb-4" />
         <p className="text-xl text-gray-700">Loading order details...</p>
       </div>
     );
@@ -49,7 +49,7 @@ export default function ViewOrderDetailsMain({ token: propToken }) {
         <span className="block sm:inline">{error?.message || 'An unknown error occurred.'}</span>
         <button
           onClick={() => refetch()}
-          className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300"
+          className="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-full transition duration-300"
         >
           Retry
         </button>
@@ -71,7 +71,7 @@ export default function ViewOrderDetailsMain({ token: propToken }) {
       <div className="mb-6 flex flex-col sm:flex-row sm:justify-between">
         <div>
           <p className="text-lg font-semibold">Order #: <span className="font-normal">{order.orderNumber}</span></p>
-          <p className="text-lg font-semibold">Status: <span className={`font-bold ml-2 ${order.status === 'Delivered' ? 'text-green-600' : order.status === 'Cancelled' ? 'text-red-600' : 'text-blue-600'}`}>{order.status}</span></p>
+          <p className="text-lg font-semibold">Status: <span className={`font-bold ml-2 ${order.status === 'Delivered' ? 'text-green-600' : order.status === 'Cancelled' ? 'text-red-600' : 'text-orange-500'}`}>{order.status}</span></p>
           <p className="text-lg font-semibold">Date: <span className="font-normal">{new Date(order.createdAt).toLocaleString()}</span></p>
         </div>
         <div className="mt-4 sm:mt-0">
@@ -129,7 +129,7 @@ export default function ViewOrderDetailsMain({ token: propToken }) {
           <p>Items: <span className="font-semibold">₦{order.itemsPrice?.total?.toLocaleString() || order.itemsPrice?.toLocaleString() || '0'}</span></p>
           <p>Tax: <span className="font-semibold">₦{order.taxPrice?.toLocaleString() || '0'}</span></p>
           <p>Shipping: <span className="font-semibold">₦{order.shippingPrice?.toLocaleString() || '0'}</span></p>
-          <p className="text-lg font-bold mt-2">Total: <span className="text-blue-700">₦{order.totalPrice?.toLocaleString() || '0'}</span></p>
+          <p className="text-lg font-bold mt-2">Total: <span className="text-orange-500">₦{order.totalPrice?.toLocaleString() || '0'}</span></p>
         </div>
       </div>
       <div className="flex justify-between mt-8">

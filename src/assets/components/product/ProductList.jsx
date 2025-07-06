@@ -109,7 +109,7 @@ const ProductList = () => {
         <h2 className="text-2xl font-bold text-gray-800">Products</h2>
         <Link
           to="/app/addproduct"
-          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+          className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600"
         >
           Add New Product
         </Link>
@@ -127,7 +127,7 @@ const ProductList = () => {
               placeholder="Search products..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              className="pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
             />
           </div>
 
@@ -142,7 +142,7 @@ const ProductList = () => {
                 setPage(1); // Reset to first page when category filter changes
                 loadProducts(); // Apply filter immediately
               }}
-              className="pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              className="pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
             >
               <option value="">All Categories</option>
               {categories.map(category => (
@@ -155,7 +155,7 @@ const ProductList = () => {
 
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 cursor-pointer"
+            className="bg-orange-600 text-white px-4 py-2 rounded-md hover:bg-orange-700 cursor-pointer"
           >
             Search
           </button>
@@ -178,7 +178,7 @@ const ProductList = () => {
       {/* Products Table */}
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-700"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600"></div>
           <p className="ml-3 text-lg text-gray-700">Loading products...</p>
         </div>
       ) : (
@@ -284,12 +284,12 @@ const ProductList = () => {
                       {product.onSale ? (
                         <div>
                           <div className="text-sm line-through text-gray-500">{formatPrice(product.price)}</div>
-                          <div className="text-sm font-medium text-blue-800">
+                          <div className="text-sm font-medium text-orange-500">
                             {formatPrice(calculateSalePrice(product.price, product.discountPercentage))}
                           </div>
                         </div>
                       ) : (
-                        <div className="text-sm font-medium text-blue-800">{formatPrice(product.price)}</div>
+                        <div className="text-sm font-medium text-orange-500">{formatPrice(product.price)}</div>
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -308,7 +308,7 @@ const ProductList = () => {
                           product.status === 'active'
                             ? 'bg-green-100 text-green-800'
                             : product.status === 'draft'
-                              ? 'bg-blue-100 text-blue-800'
+                              ? 'bg-blue-100 text-orange-500'
                               : 'bg-gray-100 text-gray-800'
                         }`}>
                         {product.status}
@@ -318,14 +318,14 @@ const ProductList = () => {
                       <div className="flex justify-end space-x-2">
                         <Link
                           to={`/app/productdetails/slug/${product.slug}`}
-                          className="text-blue-600 hover:text-blue-900"
+                          className="text-orange-500 hover:text-orange-600"
                           title="View"
                         >
                           <FaEye size={18} />
                         </Link>
                         <Link
                           to={`/app/editproduct/${product._id}`}
-                          className="text-indigo-600 hover:text-indigo-900"
+                          className="text-orange-500 hover:text-orange-600"
                           title="Edit"
                         >
                           <FaEdit size={18} />

@@ -86,7 +86,7 @@ function AllNewsletterMain() {
 
   return (
     <div style={{ maxWidth: 900, margin: '40px auto', background: '#fff', borderRadius: 8, boxShadow: '0 2px 12px #e0e0e0', padding: 32 }}>
-      <h2 style={{ color: '#00B9F1', marginBottom: 24 }}>All Newsletters</h2>
+      <h2 style={{ marginBottom: 24 }} className='text-orange-500 font-bold'>All Newsletters</h2>
       {success && <div style={{ color: 'green', marginBottom: 12 }}>{success}</div>}
       {error && <div style={{ color: 'red', marginBottom: 12 }}>{error}</div>}
       <div style={{ overflowX: 'auto' }}>
