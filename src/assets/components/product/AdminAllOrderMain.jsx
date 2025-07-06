@@ -99,6 +99,34 @@ const AdminAllOrderMain = () => {
     },
   });
 
+  // Mutation for updating payment status
+  const updatePaymentStatusMutation = useMutation({
+    mutationFn: async ({ orderId, status }) => {
+      if (!token) {
+        throw new Error('Authentication token missing.');
+      }
+      const response = await fetch(`${API_BASE_URL}/orders/${orderId}/payment-status`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ status }),
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to update payment status.');
+      }
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['allOrders'] });
+    },
+    onError: (err) => {
+      console.error("Error updating payment status:", err.message);
+    },
+  });
+
   // Filter and search logic
   const filteredOrders = orders?.filter(order => {
     const matchesSearch = searchTerm ?
@@ -211,7 +239,8 @@ const AdminAllOrderMain = () => {
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order Status</th>
+                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Payment Status</th>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
               </tr>
             </thead>
@@ -243,6 +272,23 @@ const AdminAllOrderMain = () => {
                       <option value="Delivered">Delivered</option>
                       <option value="Cancelled">Cancelled</option>
                     </select>
+                  </td>
+                  <td>
+                    <select
+                      value={order.paymentStatus}
+                      onChange={(e) => updatePaymentStatusMutation.mutate({ orderId: order._id, status: e.target.value })}
+                      disabled={updatePaymentStatusMutation.isLoading}
+                      className={`px-2 py-1 rounded-md text-sm font-semibold border ${
+                        order.status === 'Paid' ? 'bg-green-100 text-green-800 border-green-300' :
+                        order.status === 'Processing' ? 'bg-blue-100 text-blue-800 border-blue-300' :
+                        order.status === 'Not Paid' ? 'bg-red-100 text-red-800 border-red-300' :
+                        'bg-gray-100 text-gray-800 border-gray-300'
+                      } focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                      >
+                        <option value="Paid">Paid</option>
+                        <option value="Processing">Processing</option>
+                        <option value="Not Paid">Not Paid</option>
+                      </select>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <Link to={`/app/vieworderdetails/${order._id}`} className="text-orange-500 hover:text-orange-600 mr-3">
