@@ -55,7 +55,7 @@ const TrackOrder = () => {
   return (
     <>
     <Helmet>
-        <title>Track Your Order - IT Service Pro</title>
+        <title>Track Your Order - Adesola Plastics Store</title>
     </Helmet>
     <TopHeader />
     <MainHeader />
@@ -70,14 +70,14 @@ const TrackOrder = () => {
               placeholder="Enter your Order Number (e.g., ITS013000184)"
               value={orderNumberInput}
               onChange={(e) => setOrderNumberInput(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
               aria-label="Order Number Input"
             />
             <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           </div>
           <button
             type="submit"
-            className="w-full sm:w-auto px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full sm:w-auto px-6 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-md transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={!orderNumberInput.trim() || isLoading}
           >
             {isLoading ? <FaSpinner className="animate-spin" /> : 'Track Order'}
@@ -95,7 +95,7 @@ const TrackOrder = () => {
 
         {isLoading && submittedOrderNumber && (
           <div className="flex justify-center items-center py-8">
-            <FaSpinner className="animate-spin text-blue-500 text-3xl mr-3" />
+            <FaSpinner className="animate-spin text-orange-500 text-3xl mr-3" />
             <p className="text-lg text-gray-700">Fetching order status...</p>
           </div>
         )}
@@ -134,8 +134,8 @@ const TrackOrder = () => {
         )}
 
         {!submittedOrderNumber && !isLoading && (
-          <div className="bg-blue-50 border border-blue-300 text-blue-800 p-4 rounded-md text-center">
-            <FaBoxOpen className="text-blue-500 text-4xl mx-auto mb-3" />
+          <div className="bg-orange-50 border border-orange-300 text-orange-500 p-4 rounded-md text-center">
+            <FaBoxOpen className="text-orange-500 text-4xl mx-auto mb-3" />
             <p className="text-lg font-semibold">Enter an order number to check its status.</p>
             <p className="text-sm mt-2">This feature allows quick status checks without needing to log in.</p>
           </div>

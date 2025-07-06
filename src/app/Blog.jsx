@@ -20,7 +20,7 @@ function Blog() {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-[50vh] bg-gray-50 p-6 rounded-lg ">
-        <FaSpinner className="animate-spin text-blue-500 text-4xl mr-3" />
+        <FaSpinner className="animate-spin text-orange-500 text-4xl mr-3" />
         <p className="text-xl text-gray-700">Loading blog page...</p>
       </div>
     );
@@ -34,7 +34,7 @@ function Blog() {
         <h2 className="text-3xl font-bold mb-6 text-center">Our Blog</h2>
         <div className="mb-6 flex flex-wrap gap-3 justify-center">
           <button
-            className={`px-4 py-2 rounded ${selectedCategory === '' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+            className={`px-4 py-2 rounded ${selectedCategory === '' ? 'bg-orange-600 text-white' : 'bg-gray-200 text-gray-700'}`}
             onClick={() => setSelectedCategory('')}
           >
             All
@@ -42,7 +42,7 @@ function Blog() {
           {categories.map((cat) => (
             <button
               key={cat}
-              className={`px-4 py-2 rounded ${selectedCategory === cat ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+              className={`px-4 py-2 rounded ${selectedCategory === cat ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700'}`}
               onClick={() => setSelectedCategory(cat)}
             >
               {cat}
@@ -75,12 +75,12 @@ function Blog() {
                 </div>
                 <div className="mb-2">
                   {blog.categories && blog.categories.map((cat) => (
-                    <span key={cat} className="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs mr-2">
+                    <span key={cat} className="inline-block bg-blue-100 text-orange-500 px-2 py-1 rounded text-xs mr-2">
                       {cat}
                     </span>
                   ))}
                 </div>
-                <Link to={`/app/blogdetails/${blog._id}`} className="text-blue-600 hover:underline mb-4">
+                <Link to={`/app/blogdetails/${blog._id}`} className="text-orange-500 hover:underline mb-4">
                   Read more →
                 </Link>
               </div>

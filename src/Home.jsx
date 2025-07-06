@@ -18,7 +18,7 @@ function Home() {
     <>
     <Helmet>
       <title>Home - Adesola Plastic Stores</title>
-      <meta name="description" content="IT Service Pro offers expert laptop repair, IT solutions, web and mobile development, and more. Trusted, skilled, and always ready to serve your business technology needs." />
+      <meta name="description" content="Adesola Plastics Store is a trusted eCommerce destination for high-quality plastic materials and household essentials. We offer a wide range of products including chairs, tables, home equipment, and durable plastic goods to meet your everyday needs." />
     </Helmet>
     <TopHeader />
     <MainHeader />

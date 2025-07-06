@@ -9,15 +9,15 @@ function ContactInfo() {
         <div className="flex-1 bg-white rounded-lg shadow p-6">
           <h2 className="text-2xl font-bold text-[#0A1F44] mb-4">Contact Information</h2>
           <div className="mb-4 flex items-start">
-            <MapPin className="w-5 h-5 text-[#00B9F1] mt-1 mr-3" />
+            <MapPin className="w-5 h-5 text-orange-500 mt-1 mr-3" />
             <span className="text-gray-700">22 Alhaji Olaye Street, Abule-Odu, Egbeda, Idimu Road Lagos, Nigeria</span>
           </div>
           <div className="mb-4 flex items-start">
-            <Phone className="w-5 h-5 text-[#00B9F1] mt-1 mr-3" />
+            <Phone className="w-5 h-5 text-orange-500 mt-1 mr-3" />
             <a href="tel:08029580850" className="text-gray-700 hover:text-[#00B9F1] transition">(+234) 08029580850</a>
           </div>
           <div className="mb-4 flex items-start">
-            <Mail className="w-5 h-5 text-[#00B9F1] mt-1 mr-3" />
+            <Mail className="w-5 h-5 text-orange-500 mt-1 mr-3" />
             <a href="mailto:info@adesolaplasticstore.com" className="text-gray-700 hover:text-[#00B9F1] transition">info@adesolaplasticstore.com</a>
           </div>
           <div className="mt-6">

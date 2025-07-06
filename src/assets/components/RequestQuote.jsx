@@ -46,18 +46,18 @@ function RequestQuote() {
             <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-8 mt-8">
               <div className="flex items-center space-x-3">
                 {/* Phone icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone text-orange-500">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                 </svg>
-                <span className="text-gray-700">Fast Service: <a href="tel:08029580850" className="text-blue-500 hover:underline">(+234) 08029580850</a></span>
+                <span className="text-gray-700">Fast Service: <a href="tel:08029580850" className="text-orange-500 hover:underline">(+234) 08029580850</a></span>
               </div>
               <div className="flex items-center space-x-3">
                 {/* Mail icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail text-orange-500">
                   <rect width="20" height="16" x="2" y="4" rx="2"/>
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                 </svg>
-                <span className="text-gray-700"><a href="mailto:info@adesolaplasticstore.com" className="text-blue-500 hover:underline">info@adesolaplasticstore.com</a></span>
+                <span className="text-gray-700"><a href="mailto:info@adesolaplasticstore.com" className="text-orange-500 hover:underline">info@adesolaplasticstore.com</a></span>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@ function RequestQuote() {
                   value={form.name}
                   onChange={handleChange}
                   placeholder="Full name"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
               </div>
@@ -86,7 +86,7 @@ function RequestQuote() {
                   value={form.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
               </div>
@@ -97,7 +97,7 @@ function RequestQuote() {
                   value={form.phone}
                   onChange={handleChange}
                   placeholder="Your Phone Number"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
                   required
                 />
               </div>
@@ -127,14 +127,14 @@ function RequestQuote() {
                   onChange={handleChange}
                   placeholder="Service Needed"
                   rows="5"
-                  className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
                   required
                 ></textarea>
               </div>
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex items-center justify-center space-x-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
+                className="w-full flex items-center justify-center space-x-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
               >
                 <span>{loading ? 'Sending...' : 'Request Quote'}</span>
                 {/* Phone icon for the button */}

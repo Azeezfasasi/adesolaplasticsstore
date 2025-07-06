@@ -71,7 +71,7 @@ const RecentlyViewedProducts = () => {
               key={product._id || idx}
             >
               <Link
-                to={`/product/${product.slug || product._id}`}
+                to={`/app/productdetails/slug/${product.slug || product._id}`}
                 className="flex flex-col items-center w-full h-full text-inherit no-underline"
               >
                 <img

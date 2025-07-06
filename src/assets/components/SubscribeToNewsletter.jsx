@@ -59,7 +59,7 @@ function SubscribeToNewsletter() {
         </form>
         {success && <p className="text-green-400 text-xs mt-2">{success}</p>}
         {error && <p className="text-red-400 text-xs mt-2">{error}</p>}
-        <p className="text-xs text-gray-400 mt-2">Get the latest updates and offers.</p>
+        <p className="text-xs text-gray-300 mt-2">Get the latest updates and offers.</p>
     </div>   
     </>
   )

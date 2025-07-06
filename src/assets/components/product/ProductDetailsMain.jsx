@@ -335,9 +335,10 @@ const ProductDetailsMain = () => {
               {/* Category */}
               {product.category && (
                 <p className="text-sm text-gray-500 mt-1">
-                  Category: <Link to={`/products?category=${product.category._id}`} className="text-orange-500 hover:underline">{product.category.name}</Link>
+                  Category: <Link to={`/app/productsbycategory/slug/${product.category.slug}`} className="text-orange-500 hover:underline">{product.category.name}</Link>
                 </p>
               )}
+              {/* /app/productsbycategory/slug/${cat.slug} */}
 
               {/* Ratings */}
               <div className="flex items-center mt-2">
