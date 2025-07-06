@@ -40,7 +40,7 @@ function SubscribeToNewsletterPopUp() {
     <div className="flex flex-col flex-1 border border-solid border-gray-400 justify-start items-center py-4 rounded-md">
         {success && <p className="text-green-400 text-xs mt-2">{success}</p>}
         {error && <p className="text-red-400 text-xs mt-2">{error}</p>}
-        <form className="w-[60%] flex flex-col sm:flex-col items-center gap-2" onSubmit={handleSubmit}>
+        <form className="w-[90%] md:w-[60%] flex flex-col sm:flex-col items-center gap-2" onSubmit={handleSubmit}>
         <input
             type="email"
             placeholder="Your email address"
