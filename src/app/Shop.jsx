@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import ProductListForCustomers from '../assets/components/product/ProductListForCustomers'
 import Footer from '../assets/components/Footer'
 import RecentlyViewedProducts from '../assets/components/product/RecentlyViewedProducts'
+import { SubscribePopUp } from '../assets/components/SubscribePopUp'
 
 function Shop() {
   return (
@@ -17,6 +18,7 @@ function Shop() {
     <ProductListForCustomers />
     <RecentlyViewedProducts />
     <Footer />
+    <SubscribePopUp />
     </>
   )
 }
