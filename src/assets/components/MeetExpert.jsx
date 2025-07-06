@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function MeetExpert() {
   const experts = [
     {
@@ -25,7 +27,7 @@ function MeetExpert() {
           </div>
           <div className="text-center">
             <p className="text-gray-600 mb-4">
-              Adesola Plastics Store is led by a passionate team with decades of experience in the plastics industry. Our founder, Adesola Adebayo, has built a business rooted in integrity, innovation, and a deep commitment to customer satisfaction.
+              Adesola Plastics Store is led by a passionate team with decades of experience in the plastics industry. Our founder, Adesola, has built a business rooted in integrity, innovation, and a deep commitment to customer satisfaction.
             </p>
             <p className="text-gray-600">
               From product design to customer care, our leadership team ensures every product meets the highest standards of quality and sustainability. We believe in empowering our staff, supporting our community, and delivering value to every customer.
@@ -50,11 +52,11 @@ function MeetExpert() {
                 <h3 className="text-[16px] md:text-[20px] font-semibold">{expert.name}</h3>
                 <p className="text-[13px] md:text-[14px] font-medium">{expert.title}</p>
                 <p className="text-[12px] md:text-[13px] mt-1">{expert.bio}</p>
-                {expert.linkedin && (
-                  <a href={expert.linkedin} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 text-blue-200 underline text-xs">LinkedIn</a>
-                )}
-                <div>
-                  
+                <div className="flex justify-start items-center gap-5 mt-3">
+                  <Link to=""><i className="fa-brands fa-facebook text-[25px]"></i></Link>
+                  <Link to=""><i className="fa-brands fa-instagram text-[25px]"></i></Link>
+                  <Link to=""><i className="fa-brands fa-whatsapp text-[25px]"></i></Link>
+                  <Link to=""><i className="fa-brands fa-tiktok text-[25px]"></i></Link>
                 </div>
               </div>
             </div>

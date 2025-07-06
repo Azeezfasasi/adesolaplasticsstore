@@ -1,4 +1,4 @@
-import aboutimage1 from '../images/aboutimage1.jpg';
+import about1 from '../images/product-image/about1.jpg'
 
 function OurMission() {
   return (
@@ -19,7 +19,7 @@ function OurMission() {
           {/* Left Side: Image */}
           <div className="w-full flex justify-center items-center">
             <img
-              src={aboutimage1}
+              src={about1}
               alt="About Adesola Plastics Store"
               className="rounded-3xl shadow-xl object-fill w-full h-[300px] md:h-[400px]"
             />

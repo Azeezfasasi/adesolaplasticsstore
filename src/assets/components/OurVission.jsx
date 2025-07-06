@@ -1,4 +1,6 @@
-import aboutimage2 from '../images/aboutimage2.png'
+// import aboutimage2 from '../images/aboutimage2.png'
+import about2 from '../images/product-image/about2.jpg'
+
 
 function OurVission() {
   return (
@@ -21,7 +23,7 @@ function OurVission() {
         {/* Right Section: Image */}
         <div className="w-full flex justify-center items-center">
           <img
-            src={aboutimage2}
+            src={about2}
             alt="About Adesola Plastics Store"
             className="rounded-3xl shadow-xl object-fill w-full h-[300px] md:h-[400px]"
           />
