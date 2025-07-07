@@ -203,7 +203,7 @@ function ShopByCategories() {
               <Link
                 to={`/app/productsbycategory/slug/${cat.slug}`}
                 key={cat._id}
-                className="inline-block min-w-[150px] sm:min-w-[180px] lg:min-w-[200px] flex-shrink-0 bg-gray-50 rounded-xl shadow-sm overflow-hidden p-4 flex flex-col items-center text-center border border-gray-200 hover:shadow-md transition-shadow duration-300 cursor-pointer focus:outline-none mx-2" // Added inline-block, flex-shrink-0, and margin
+                className="min-w-[150px] sm:min-w-[180px] lg:min-w-[200px] flex-shrink-0 bg-gray-50 rounded-xl shadow-sm overflow-hidden p-4 flex flex-col items-center text-center border border-gray-200 hover:shadow-md transition-shadow duration-300 cursor-pointer focus:outline-none mx-2" // Added inline-block, flex-shrink-0, and margin
                 style={{ textDecoration: 'none' }}
               >
                 <img
