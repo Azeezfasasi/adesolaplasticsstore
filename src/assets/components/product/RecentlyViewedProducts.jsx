@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 const RECENTLY_VIEWED_KEY = 'recentlyViewedProducts';
 
 const RecentlyViewedProducts = () => {
   const [products, setProducts] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const maxVisible = 4; // Number of products visible at once
+  const sliderRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
 
   useEffect(() => {
     // Get recently viewed products from localStorage
@@ -14,27 +16,90 @@ const RecentlyViewedProducts = () => {
     if (stored) {
       try {
         const parsed = JSON.parse(stored);
-        setProducts(parsed.slice(0, 10));
-      } catch {
+        // Ensure unique products and limit to 10
+        const uniqueProducts = Array.from(new Map(parsed.map(product => [product._id || product.slug, product])).values());
+        setProducts(uniqueProducts.slice(0, 10));
+      } catch (error) {
+        console.error("Failed to parse recently viewed products from localStorage:", error);
         setProducts([]);
       }
     }
   }, []);
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
-  };
+  // Arrow navigation
+  const handleScroll = useCallback((direction) => {
+    if (sliderRef.current) {
+      const scrollAmount = sliderRef.current.offsetWidth * 0.6; // Scroll by 60% of the container width
+      sliderRef.current.scrollBy({
+        left: direction === 'next' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  }, []);
 
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      Math.min(prev + 1, Math.max(products.length - maxVisible, 0))
-    );
-  };
+  const handlePrev = () => handleScroll('prev');
+  const handleNext = () => handleScroll('next');
+
+  // Drag functionality
+  const onMouseDown = useCallback((e) => {
+    isDragging.current = true;
+    if (sliderRef.current) {
+      sliderRef.current.classList.add('dragging');
+      startX.current = e.pageX - sliderRef.current.offsetLeft;
+      scrollLeft.current = sliderRef.current.scrollLeft;
+    }
+  }, []);
+
+  const onMouseLeave = useCallback(() => {
+    if (isDragging.current && sliderRef.current) {
+      isDragging.current = false;
+      sliderRef.current.classList.remove('dragging');
+    }
+  }, []);
+
+  const onMouseUp = useCallback(() => {
+    if (isDragging.current && sliderRef.current) {
+      isDragging.current = false;
+      sliderRef.current.classList.remove('dragging');
+    }
+  }, []);
+
+  const onMouseMove = useCallback((e) => {
+    if (!isDragging.current || !sliderRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5; // Increased sensitivity for a snappier drag
+    sliderRef.current.scrollLeft = scrollLeft.current - walk;
+  }, []);
+
+  // Touch events for mobile
+  const onTouchStart = useCallback((e) => {
+    isDragging.current = true;
+    if (sliderRef.current) {
+      sliderRef.current.classList.add('dragging');
+      startX.current = e.touches[0].pageX - sliderRef.current.offsetLeft;
+      scrollLeft.current = sliderRef.current.scrollLeft;
+    }
+  }, []);
+
+  const onTouchEnd = useCallback(() => {
+    if (isDragging.current && sliderRef.current) {
+      isDragging.current = false;
+      sliderRef.current.classList.remove('dragging');
+    }
+  }, []);
+
+  const onTouchMove = useCallback((e) => {
+    if (!isDragging.current || !sliderRef.current) return;
+    const x = e.touches[0].pageX - sliderRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5; // Increased sensitivity
+    sliderRef.current.scrollLeft = scrollLeft.current - walk;
+  }, []);
 
   if (!products.length) return null;
 
   return (
-    <div className="my-8 bg-white rounded-xl shadow-lg px-4 py-8 overflow-hidden">
+    <div className="my-8 bg-white rounded-xl shadow-lg px-4 py-8 overflow-hidden relative">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
         <h3 className="text-lg font-semibold text-orange-500 mb-2 sm:mb-0">
           Recently Viewed Products
@@ -42,32 +107,63 @@ const RecentlyViewedProducts = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={handlePrev}
-            disabled={currentIndex === 0}
-            className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-orange-100 disabled:opacity-40 disabled:cursor-not-allowed transition"
+            className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-orange-100 transition border border-orange-200 shadow"
             aria-label="Previous"
+            type="button"
           >
-            &lt;
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15 19l-7-7 7-7"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </button>
           <button
             onClick={handleNext}
-            disabled={currentIndex >= products.length - maxVisible}
-            className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-orange-100 disabled:opacity-40 disabled:cursor-not-allowed transition"
+            className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 text-gray-600 hover:bg-orange-100 transition border border-orange-200 shadow"
             aria-label="Next"
+            type="button"
           >
-            &gt;
+            <svg
+              width="20"
+              height="20"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M9 5l7 7-7 7"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </button>
         </div>
       </div>
-      <div className="overflow-hidden w-full">
+      <div className="overflow-hidden w-full relative">
         <div
-          className="flex transition-transform duration-500 ease-out"
-          style={{
-            transform: `translateX(-${currentIndex * (100 / maxVisible)}%)`,
-          }}
+          ref={sliderRef}
+          className="flex whitespace-nowrap overflow-x-hidden no-scrollbar cursor-grab select-none"
+          onMouseDown={onMouseDown}
+          onMouseLeave={onMouseLeave}
+          onMouseUp={onMouseUp}
+          onMouseMove={onMouseMove}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+          onTouchMove={onTouchMove}
         >
           {products.map((product, idx) => (
             <div
-              className="min-w-[50%] lg:min-w-[23%] max-w-[23%] mx-[1%] bg-gray-50 rounded-lg shadow-sm flex flex-col items-center hover:shadow-md transition mb-2"
+              className="min-w-[50%] lg:min-w-[23%] max-w-[23%] mx-[1%] bg-gray-50 rounded-lg shadow-sm flex-shrink-0 flex flex-col items-center hover:shadow-md transition mb-2"
               key={product._id || idx}
             >
               <Link
@@ -78,7 +174,7 @@ const RecentlyViewedProducts = () => {
                   src={
                     product.thumbnail ||
                     (product.images && product.images[0]?.url) ||
-                    '/placehold.co/400x400/CCCCCC/000000?text=No+Image'
+                    'https://placehold.co/400x400/CCCCCC/000000?text=No+Image' // Updated placeholder URL
                   }
                   alt={product.name}
                   className="w-full h-40 object-cover border-b border-gray-100"
