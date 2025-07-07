@@ -67,7 +67,7 @@ const RecentlyViewedProducts = () => {
         >
           {products.map((product, idx) => (
             <div
-              className="min-w-[23%] max-w-[23%] mx-[1%] bg-gray-50 rounded-lg shadow-sm flex flex-col items-center hover:shadow-md transition mb-2"
+              className="min-w-[50%] lg:min-w-[23%] max-w-[23%] mx-[1%] bg-gray-50 rounded-lg shadow-sm flex flex-col items-center hover:shadow-md transition mb-2"
               key={product._id || idx}
             >
               <Link
