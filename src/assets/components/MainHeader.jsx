@@ -4,6 +4,7 @@ import accountprofile from '../images/accountprofile.svg'
 import CartIcon from './dashboard-components/CartIcon';
 import WishlistIcon from './dashboard-components/Wishlisticon';
 import logotransparent from '../images/logotransparent.png';
+import ProductSearch from './product/ProductSearch';
 
 function MainHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -74,6 +75,7 @@ function MainHeader() {
           </div>
         )}
       </div>
+    <ProductSearch />
     </>
   )
 }
